@@ -1,0 +1,637 @@
+body{
+   background-color: #607f24;
+    
+}
+.header1{
+  width:900px;
+ align-self: center;
+}
+.whitesmoke{
+    color:whitesmoke;
+}
+.black{
+    color:black;
+}
+
+.damion{
+    font-family:'damion', serif;
+}
+.text1{
+    color:white;
+    font-size: 38px;
+    text-shadow: 3px 3px 9px #d5d156;
+}
+.text2{
+    font-size:18px;
+    color:white;
+    font-family:sans-serif;
+    float: inherit;
+}
+.text2 i{
+    padding-left:none;
+}
+.afrim{
+    font-family: 'damion', cursive;
+    color: white;
+}
+.navbar-bg{
+    background-color:#f9f06a;
+    width:100%;
+    padding-top:5px;
+    padding-bottom: 4px;
+}
+.nav-button{
+    text-decoration: none;
+    color:black;        
+    background-color:#f9f06a;
+    padding:8px;
+    float: left;
+    transition: .s;
+}
+
+.nav-button:hover{
+    color: white;
+    text-decoration: none;
+    background-color: #353316;
+}
+.nav-button:active{
+    color: white;
+    text-decoration: none;
+    background-color: #353316;
+}
+.nav-button[tabindex]:focus {
+    color:white;
+    background-color: #353316;
+}
+/* The dropdown container */
+.dropdown {
+    float: left;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn { 
+  border: none;
+  outline: none;
+  color: black;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+.dropbtn:hover{
+    color:white;
+    background-color:#353316;
+}
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  margin-top: 40px;
+  font-size: 9.5px;       
+  display:none;
+  position:absolute;
+  background-color: #f9f9f9;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 3;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 11px 15px;
+  text-decoration:none;          
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #353316;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display:block;
+}
+/* Main Background for hte website... Black fade*/
+.body{
+    background: rgba(0, 0, 0, .8);
+}
+.icons{
+    width:32px;
+    height: 32px;
+    float: left;
+}
+/* Comfortaaa Header */
+.mainHeader{
+    font-size: 13px;
+    font-family: comfortaa;
+    font-style: bold;
+    color: white;
+}
+/* Contact Us Page*/
+.contactus-align{
+    margin-left: 34%;
+}
+.product-header{
+    font-family: comfortaa, sans-serif;
+    color: white;
+    font-weight: 700;
+    font-size:18px;
+    line-height: 16px;
+    padding: 0 10px;
+}
+.product-image{
+    width:150px;
+    height:inherit;
+    padding-top: 5px;
+    
+}
+.product-image1{
+    width:190px;
+    height:inherit;
+    padding-top: 5px;
+    
+}
+.product-price{
+    color:white;
+}
+.bigpic{
+    border:5px solid white;
+}
+.lipbalm-img{
+    background-color: white; 
+    height:200px;
+    padding-top: 30%;
+}
+.comfortaa{
+    font-family: "comfortaa", serif;
+    color:white;
+    font-size: 14px;
+}
+.center{
+    text-align: center;
+}
+.large-header{
+    font-size: 22px;
+    font-family: "comfortaa", serif;
+}
+.medium-header{
+    font-size: 17px;
+    font-family: "comfortaa", serif;
+}
+.nesbmail1{
+    display:none;
+    color: white;
+    text-shadow: 3px 3px 9px #000;
+}
+/* Input type will go here*/
+.input-options{
+    border-radius: 5px;
+}
+
+
+/* Why Raw African Black Soap*/
+
+.whyRAB_Image{
+     border: 5px solid white;
+    width: 300px;
+    height: 230px;
+}
+/* Why Shea Butter*/
+.whySB_Image{
+    border: 5px solid white;
+    width: 300px;
+    height: 258px;
+}
+
+
+.basic-link{
+    color: #faf067;
+    text-decoration: underline;
+}
+.basic-link:hover{
+    color: white;
+    text-decoration: underline;
+}
+/* Slide Show Start */
+
+.slideshow{
+  position: relative;
+  display: block;
+  overflow: hidden;
+    
+}
+
+.slideshow figure{
+  position: absolute;
+  margin:0;
+  opacity: 0;
+  transition: 1s opacity;
+}
+.slideshow figure img{
+  display:block;
+  width:100%;
+}
+.slideshow figcaption{
+  position: absolute;
+  font-family: sans-serif;
+  font-size: inherit;
+  bottom: 0;
+  left: 0;
+  padding: 0.5em;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+}
+.slideshow figcaption a{
+  color: #f55;
+}
+.slideshow figure.show{
+  opacity: 1;
+  position: static;
+  transition: 1s opacity;
+}
+.slideshow .next, .slideshow .prev{
+  color: #fff;
+  position: absolute;
+  background: rgba(255,255,255,0.3);
+  top: 0;
+  width: calc(95% / 2);
+  height: 100%;
+  z-index: 1;
+  margin: 0;
+  opacity: 0;
+  user-select: none;
+  text-align: center;
+  transition:all 0.5s ease;
+}
+.slideshow .next:hover, .slideshow .prev:hover{
+  cursor: pointer;
+  opacity: 1;
+  transition:all 0.5s ease;
+}
+.slideshow .next{
+  right: 0;
+}
+.slideshow .prev{
+  left: 0;
+}
+.image_frame{
+    border: 5px solid white;
+    
+}
+/* lipbalm page starts here*/
+
+.LipBalm-btn{
+    margin-top: 110px;
+}
+
+/* Lip balm page ends here*/
+
+
+/* Natural Oils Section */
+@media(max-width:900px){
+    .Main_Natural_Oil{
+        margin-right: 23%;
+    }
+    
+    
+    /* These section is for anything that has to do with paypal products*/
+        .long_drpdwn{
+           max-width: 100px;
+        }
+
+
+}
+
+
+
+
+
+@media (min-width:320px){
+   .slideshow{
+    max-width:100%;
+    height:auto;
+    margin:0px auto;
+  } 
+  .slideshow .next, .slideshow .prev{
+    height:auto;
+  }
+}
+
+
+
+
+
+@media (min-width:480px){
+   .slideshow{
+    max-width:900px;
+    height:500px;
+    background-color: #86ae42;
+    padding:10px; 
+  } 
+  .slideshow .next, .slideshow .prev{
+    height:100%;
+  }
+}
+
+/* SLide SHow End  */
+
+/* Honey Link CSS Style*/
+
+.honey-link{
+    color:yellow; 
+    text-decoration: underline;
+}
+.honey-link:hover{
+    color: white;
+    text-decoration: underline;
+}
+@media (min-width:900px){
+    
+.text2 i{
+    padding-left: none;
+}
+.active4{
+    display: none;
+}
+.icon4{
+    display: none;
+}
+.topnav a {
+    display: none;
+}
+.dropbtn1{
+    display: none;
+} 
+    .nav__toggle{
+        display: none;
+    }
+    .mobile__Shopping{
+        display:none;
+    }
+    .mobile__nav__text{
+                display:none;
+            }
+}
+
+
+
+
+@media (max-width:900px){
+    /* LipBalm Mobile Responsivess*/
+            .lipbalm-img{ 
+            background: none;
+        }
+    /* Ends HERE LIPBALM */
+    
+    /* Contact Us Page starts Here*/
+    .contactus-align{
+        margin-left: 10%;
+    }
+    /* Contact Us Page Ends Here*/
+    .slogan{
+        font-size: 10px;
+    }
+    .image_frame{
+        max-width: 300px;
+    }
+    .header1{
+        width: inherit;
+    }
+    .slideshow{
+        max-width: 700px;
+        width:100%;
+        height: auto;
+        margin-left: 0;
+    }
+    .display-none{
+        display: none;
+    }
+    .navbar{
+        display: none;
+    }
+    .product{
+        margin: 5%;
+    }
+    .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+    
+    .mobile-padding-20{
+        margin-top: 20px;
+    }
+    
+    /* MOBILE NAVBAR STARTS HERE*/
+    :root {
+              --screen-width: 100%;
+              --screen-height: 100%;
+              --header-bg-color: #d5d156;
+              --splash-bg-color: #29380c;
+            }
+            .nav__toggle {
+              display: inline-block;
+              position: absolute;
+              z-index: 10;
+              padding: 0;
+              border: 0;
+              background: transparent;
+              outline: 0;
+              right: 25px;
+              top: 15px;
+              cursor: pointer;
+              border-radius: 50%;
+              transition: background-color 0.15s linear;
+            }
+            .nav__toggle:hover, .nav__toggle:focus {
+              background-color: rgba(0, 0, 0, .5);
+            }
+            .mobile__nav__text{
+                padding: 20px 0 0 10px;
+            }
+            .nav__menu {
+              overflow-y: scroll;
+              width: 100%;
+              list-style: none;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              height: var(--screen-height);
+              position: relative;
+              z-index: 5;
+              visibility: hidden;
+            }
+            .nav__item {
+              opacity: 0;
+              transition: all 0.3s cubic-bezier(0, 0.995, 0.99, 1) 0.3s;
+            }
+            .nav__item:nth-child(1) {
+              transform: translateY(-40px);
+            }
+            .nav__item:nth-child(2) {
+              transform: translateY(-80px);
+            }
+            .nav__item:nth-child(3) {
+              transform: translateY(-120px);
+            }
+            .nav__item:nth-child(4) {
+              transform: translateY(-160px);
+            }
+            .nav__item:nth-child(5) {
+              transform: translateY(-200px);
+            }
+            .nav__item:nth-child(6) {
+              transform: translateY(-240px);
+            }
+            .nav__item:nth-child(7) {
+                      transform: translateY(-280px);
+                    }
+            .nav__item:nth-child(8) {
+                      transform: translateY(-320px);
+                    }
+            .nav__item:nth-child(9) {
+                      transform: translateY(-360px);
+                    }
+            .nav__item:nth-child(10) {
+                      transform: translateY(-400px);
+                    }
+            .nav__link {
+              color: white;
+              display: block;
+              text-align: center;
+              text-transform: uppercase;
+              letter-spacing: 5px;
+              font-size: 10px;
+              text-decoration: none;
+              padding: 10px;
+             border-bottom: 1px solid lightgray;
+             
+            }
+            .nav__link:hover, .nav__link:focus {
+                color:white;
+              text-decoration: none;
+              outline: 0;
+              background-color: rgba(0, 0, 0, 0.2);
+            }
+            .menuicon {
+              display: block;
+              cursor: pointer;
+              color: white;
+              transform: rotate(0deg);
+              transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+            .menuicon__bar, .menuicon__circle {
+              fill: none;
+              stroke: currentColor;
+              stroke-width: 3;
+              stroke-linecap: round;
+            }
+            .menuicon__bar {
+              transform: rotate(0deg);
+              transform-origin: 50% 50%;
+              transition: transform 0.25s ease-in-out;
+            }
+            .menuicon__circle {
+              transition: stroke-dashoffset 0.3s linear 0.1s;
+              stroke-dashoffset: 144.51326;
+              stroke-dasharray: 144.51326;
+            }
+            .splash {
+              position: absolute;
+              top: 40px;
+              right: 40px;
+              width: 1px;
+              height: 1px;
+            }
+            .splash::after {
+              content: "";
+              display: block;
+              position: absolute;
+              border-radius: 50%;
+              background-color: var(--splash-bg-color);
+              width: 284vmax;
+              height: 284vmax;
+              top: -142vmax;
+              left: -142vmax;
+              transform: scale(0);
+              transform-origin: 50% 50%;/*You can fix the speed of the nabar right under here*/
+              transition: transform 0.3s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+              will-change: transform;
+            }
+            .nav:target > .splash::after, .nav--open > .splash::after {
+              transform: scale(1);
+            }
+            .nav:target .menuicon, .nav--open .menuicon {
+              color: white;
+              transform: rotate(180deg);
+            }
+            .nav:target .menuicon__circle, .nav--open .menuicon__circle {
+              stroke-dashoffset: 0;
+            }
+            .nav:target .menuicon__bar:nth-child(1), .nav--open .menuicon__bar:nth-child(1), .nav:target .menuicon__bar:nth-child(4), .nav--open .menuicon__bar:nth-child(4) {
+              opacity: 0;
+            }
+            .nav:target .menuicon__bar:nth-child(2), .nav--open .menuicon__bar:nth-child(2) {
+              transform: rotate(45deg);
+            }
+            .nav:target .menuicon__bar:nth-child(3), .nav--open .menuicon__bar:nth-child(3) {
+              transform: rotate(-45deg);
+            }
+            .nav:target .nav__menu, .nav--open .nav__menu {
+              visibility: visible;
+            }
+            .nav:target .nav__item, .nav--open .nav__item {
+              opacity: 1;
+              transform: translateY(0);
+            }
+            .header5 { 
+              z-index: 9;
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 5rem;
+              background-color: var(--header-bg-color);
+            }
+            .mobile__Shopping{
+                margin-top: 20px;
+                margin-left: 20px;
+                text-decoration:none;
+                color: green;
+                padding: 9px;
+            }
+            .mobile__Shopping:hover{
+                background-color: rgba(0, 0, 0, 0.2); 
+                text-decoration: none;
+                border: 1px solid lightgray;
+            }
+}
+
+@media(max-width: 380px){
+    .mobile__nav__text{
+        display: none;
+    }
+}
+
+@media(max-width: 340px){
+    /* Contact Us Page starts Here*/
+    .contactus-align{
+        margin-left: 3%;
+    }
+    /* Contact Us Page Ends Here*/
+}
+@media(max-width: 700px){
+    .mobile-padding-20-700px{
+        margin-top: 20px;
+    }
+    .LipBalm-btn{
+    margin-top: 10px;
+        
+    }
+    .nesbmail1{
+        display: block;
+    }
+    
+}
