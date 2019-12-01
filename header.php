@@ -81,7 +81,7 @@ $header = "
                </div>
                <nav class='navbar navbar-light navbar-bg navbar-expand-lg' id='navbar'>
                       
-                       <a href='#' class='nav-button nav-link'>Shea Butter</a>
+                       <a href='index.php' class='nav-button nav-link'>Shea Butter</a>
                        <a href='Afterbath.php' class='nav-button nav-link'>AfterBath Oil</a>
                        <a href='AfricanBlackSoap.php' class='nav-button nav-link'>African Black Soap</a>
                        <a href='Shamp_Cond.php'class='nav-button nav-link'>Shampoo & Condtioner</a>
