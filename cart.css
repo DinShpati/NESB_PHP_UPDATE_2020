@@ -47,12 +47,12 @@
 }
  .heading a.continue:link, .heading a.continue:visited {
 	 text-decoration: none;
-	 font-family: 'Montserrat', sans-serif;
+	 font-family: 'comfortaa', sans-serif;
 	 letter-spacing: -0.015em;
 	 font-size: 0.75em;
 	 padding: 1em;
 	 color: #fff;
-	 background: #82ca9c;
+	 background: #607f24 !important;
 	 font-weight: bold;
 	 border-radius: 50px;
 	 float: right;
@@ -75,7 +75,7 @@
 	 transition: all 0.15s linear;
 }
  .heading a.continue:hover, .heading a.continue:focus, .heading a.continue:active {
-	 background: #f69679;
+	 background: #d5d156;
 }
  .heading a.continue:hover:after, .heading a.continue:focus:after, .heading a.continue:active:after {
 	 right: -10px;
@@ -121,6 +121,7 @@
 	 margin-bottom: 0.5em;
 }
  .cart .items .cartSection h3 {
+	 color: #dadada;
 	 font-size: 1em;
 	 font-family: 'Montserrat', sans-serif;
 	 font-weight: bold;
@@ -130,7 +131,7 @@
  .cart .items .cartSection p {
 	 display: inline-block;
 	 font-size: 0.85em;
-	 color: #777;
+	 color: #dadada;
 	 font-family: 'Montserrat', sans-serif;
 }
  .cart .items .cartSection p .quantity {
@@ -144,16 +145,19 @@
 	 text-transform: uppercase;
 }
  .cart .items .cartSection p.stockStatus.out {
-	 color: #f69679;
+	 color: #d5d156;
 }
  .cart .items .cartSection .itemImg {
+	color: #dadada;
 	 width: 4em;
 	 float: left;
 }
  .cart .items .cartSection.qtyWrap, .cart .items .cartSection.prodTotal {
+	 
 	 text-align: center;
 }
  .cart .items .cartSection.qtyWrap p, .cart .items .cartSection.prodTotal p {
+	color: #dadada;
 	 font-weight: bold;
 	 font-size: 1.25em;
 }
@@ -207,12 +211,12 @@
 	 background: #f30;
 }
  .promoCode {
-	 border: 2px solid #efefef;
 	 float: left;
 	 width: 35%;
 	 padding: 2%;
 }
  .promoCode label {
+	 color: #dadada;
 	 display: block;
 	 width: 100%;
 	 font-style: italic;
@@ -229,6 +233,7 @@
 }
  .promoCode input:active, .promoCode input:focus {
 	 outline: 0;
+	 
 }
  .promoCode a.btn {
 	 float: left;
@@ -239,8 +244,8 @@
 	 border: 1px solid #607f24;
 }
  .promoCode a.btn:hover {
-	 border: 1px solid #f69679;
-	 background: #f69679;
+	 border: 1px solid #d5d156;
+	 background: #d5d156;
 }
  .btn:link, .btn:visited {
 	 text-decoration: none;
@@ -272,7 +277,7 @@
 	 transition: all 0.15s linear;
 }
  .btn:hover, .btn:focus, .btn:active {
-	 background: #f69679;
+	 background: #d5d156;
 }
  .btn:hover:after, .btn:focus:after, .btn:active:after {
 	 right: -10px;
@@ -285,6 +290,9 @@
  .subtotal {
 	 float: right;
 	 width: 35%;
+}
+.subtotal ul{
+	list-style: none;
 }
  .subtotal .totalRow {
 	 padding: 0.5em;
@@ -303,9 +311,10 @@
 	 font-family: 'Montserrat', sans-serif;
 	 font-size: 0.85em;
 	 text-transform: uppercase;
-	 color: #777;
+	 color: #dadada;
 }
  .subtotal .totalRow .value {
+	 color: #dadada;
 	 letter-spacing: -0.025em;
 	 width: 35%;
 }
