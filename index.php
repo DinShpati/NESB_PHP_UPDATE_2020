@@ -124,7 +124,8 @@ include 'functions/functions.php';
                <div class="row body">
                     <?php 
                     $proCat = 1;
-                    getPro($proCat); 
+                    $size = 3;
+                    getPro($proCat, $size); 
                     ?>
                </div>
                <!-- End Of products-->

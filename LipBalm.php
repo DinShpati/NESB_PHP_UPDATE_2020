@@ -2,6 +2,7 @@
 
 include 'header.php';
 include 'footer.php';
+include 'functions/functions.php';
 
 ?>
 
@@ -43,6 +44,13 @@ include 'footer.php';
             color: white;
             text-shadow: 3px 3px 9px #000;
         }
+        .col-sm-6 div{
+            min-width: 250px;
+            min-height: 100px;
+        }
+        .product-image{
+            width: 240px;
+        }
         @media(max-width: 700px){
             .bg-mb-rp{
                 background:url(img/bg-mini.jpg);
@@ -79,87 +87,13 @@ include 'footer.php';
                <!-- LipBalm Products Start Here-->
                <!-- PRODUCTS -->
                <div class="row" style='padding-top: 30px;padding-left: 20px;padding-bottom:50px;'>
-                   <!-- Product 1-->
-                   <div class="col-sm-6"align="center">
-                   <div class="lipbalm-img">
-                   <img src="img/lipbalm.jpg" alt="NESB LipBalm" class="product-image"style="width: 200px;height: 65.25px;"/></div><br>
-                   <h3 class="product-header">Lip Balm</h3>
-                   <p class="product-price"align="center">$2.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;"></span></p>
-                   <!-- Add to cart button-->
-                       <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                            <input type="hidden" name="cmd" value="_s-xclick">
-                            <input type="hidden" name="hosted_button_id" value="SYHNCE658ADLQ">
-                            <table>
-                                <tr><td><input type="hidden" name="on0" value="Choose A Flavor:"><span style="color:white;">Choose A Flavor:</span></td></tr><tr><td><select name="os0">
-                                <option value="Regular Unflavored">Regular Unflavored </option>
-                                <option value="Butterscotch & Honey OUT OF STOCK" disabled>Butterscotch &amp; Honey - OUT OF STOCK</option>
-                                <option value="Mango">Mango </option>
-                                <option value="Peach">Peach </option>
-                                <option value="Peppermint">Peppermint </option>
-                                <option value="Strawberry" disabled>Strawberry OUT-OF_STOCK</option>
-                                <option value="Vanilla">Vanilla </option>
-                            </select> </td></tr>
-                            </table>
-                                <button class="btn btn-success LipBalm-btn" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                                   Add To Cart <i class="fas fa-shopping-cart"></i>
-                               </button>
-                                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                            </form>
-                   <!-- Add to cart ends Here-->
-                   </div>
-                   <!-- Product 2-->
-                   <div class="col-sm-6"align="center">
-                   <div class="lipbalm-img">
-                   <img src="img/lipbalm.jpg" alt="NESB LIPBALM" class="product-image" style="width: 200px;height: 65.25px;"/></div><br>
-                   <h3 class="product-header">Lip Balm (3 pack)</h3>
-                   <p class="product-price"align="center">$7.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;"></span></p>
-                   <!-- Add to cart button-->
-                   <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                        <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="hosted_button_id" value="SVGRRHGCPTEC2">
-                        <table>
-                        <!-- First Option-->
-                            <tr><td><input type="hidden" name="on0" value="2nd Option:"><span style="color:white;">Choose A Flavor:</span></td></tr><tr><td><select name="os0">
-                            <option value="Regular Unflavored">Regular Unflavored </option>
-                            <option value="Butterscotch & Honey OUT OF STOCK" disabled>Butterscotch & Honey OUT OF STOCK </option>
-                            <option value="Mango">Mango </option>
-                            <option value="Peach">Peach </option>
-                            <option value="Peppermint">Peppermint </option>
-                            <option value="Strawberry" disabled>Strawberry OUT-OF-STOCK</option>
-                            <option value="Vanilla">Vanilla </option>
-                        </select> </td></tr>
-                        
-                        <!-- Second option-->
-                            <tr><td><input type="hidden" name="on1" value="3rd Option:"><span style="color:white;">Choose your 2nd Flavor:</span></td></tr><tr><td><select name="os1">
-                            <option value="Regular Unflavored">Regular Unflavored </option>
-                            <option value="Butterscotch & Honey OUT OF STOCK" disabled>Butterscotch & Honey OUT OF STOCK </option>
-                            <option value="Mango">Mango </option>
-                            <option value="Peach">Peach </option>
-                            <option value="Peppermint">Peppermint </option>
-                            <option value="Strawberry" disabled>Strawberry OUT-OF-STOCK</option>
-                            <option value="Vanilla">Vanilla </option>
-                        </select> </td></tr>
-                        
-                        <!-- Third Option-->
-                            <tr><td><input type="hidden" name="on2" value="Choose A Flavor:"><span style="color:white;">Choose your 3rd Flavor:</span></td></tr><tr><td><select name="os2">
-                            <option value="Regular Unflavored">Regular Unflavored </option>
-                            <option value="Butterscotch & Honey OUT OF STOCK" disabled>Butterscotch & Honey OUT OF STOCK </option>
-                            <option value="Mango">Mango </option>
-                            <option value="Peach">Peach </option>
-                            <option value="Peppermint">Peppermint </option>
-                            <option value="Strawberry" disabled>Strawberry OUT-OF-STOCK</option>
-                            <option value="Vanilla">Vanilla </option>
-                        </select> </td></tr>
-                        
-                        </table>
-                        <button class="btn btn-success" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"style="margin-top: 5px;">
-                                   Add To Cart <i class="fas fa-shopping-cart"></i>
-                        </button>
-                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                    </form>
-                   <!--ADD TO CART ENDS HERE-->
-                   </div>
                    
+                   <!-- Products-->
+                   <?php 
+                        $proCat = 8;
+                        $size = 6;
+                        getPro($proCat, $size); 
+                    ?>  
                    
                </div>
                

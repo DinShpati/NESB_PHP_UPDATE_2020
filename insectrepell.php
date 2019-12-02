@@ -2,6 +2,7 @@
 
 include 'header.php';
 include 'footer.php';
+include 'functions/functions.php';
 
 ?>
 
@@ -94,29 +95,17 @@ include 'footer.php';
             
                   <!--
                   
-                  THESE BUTTONS ARE TEMPORARLY DISABLED, THEY ARE NEST AND PREV BUTTONS FOR THE SLIDE SHOW.
+                  THESE BUTTONS ARE TEMPORARLY DISABLED, THEY ARE NEXT AND PREV BUTTONS FOR THE SLIDE SHOW.
                   <span class="prev"></span>
                   <span class="next"></span>-->
                     </div>
                     <div class="row" style="padding-top: 20px;">
-                            <!-- Product 1-->
-                               <div class="col-sm-6 product"align="center">
-                               <div style="background-color:white;max-width:190px;">
-                               <img src="img/insect_repellent.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                               <h3 class="product-header">"All Natural" Insect Repellent</h3>
-                               <p class="product-price"align="center">$6.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;">$8.99</span></p>
-                               <!-- Add to cart button-->
-                               <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WV4UQHJZD5QN2" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                               </div>
-                                    <!-- Product 2-->
-                           <div class="col-sm-6 product"align="center">
-                               <div style="background-color:white;max-width:190px;">
-                               <img src="img/insect_repellent.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                               <h3 class="product-header">"All Natural" Insect Repellent 3-pack</h3>
-                               <p class="product-price"align="center">$17.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;">$34.99</span></p>
-                               <!-- Add to cart button-->
-                               <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BHCG2FMDQ6M9G" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                           </div>
+                            <!-- Products-->
+                            <?php 
+                                $proCat = 7;
+                                $size = 6;
+                                getPro($proCat, $size); 
+                            ?>  
                     </div>
                </div>
                <div class="col-sm-6" align="center">

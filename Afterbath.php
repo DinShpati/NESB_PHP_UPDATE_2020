@@ -2,6 +2,8 @@
 
 include 'header.php';
 include 'footer.php';
+include 'functions/functions.php';
+
 ?>
 
 <!doctype html>
@@ -77,26 +79,12 @@ include 'footer.php';
            <div class="row body">
                <div class="col-sm-6">
                    <div class="row">
-                  <!-- Product 1-->
-                   <div class="col-sm-6"align="center">
-                       <br>
-                   <div style="background-color:white;max-width:190px;">
-                   <img src="img/Afterbath-2pk.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                   <h3 class="product-header">NE Shea Butter After Bath Oil - 2pack</h3>
-                   <p class="product-price"align="center">$25.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;"></span></p>
-                   <!-- Add to cart button-->
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5T4CVGLJBRWTG" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
-                   <!-- Product 2-->
-                   <div class="col-sm-6"align="center">
-                    <br>
-                   <div style="background-color:white;max-width:190px;">
-                   <img src="img/Afterbath.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                   <h3 class="product-header">NE Shea Butter After Bath Oil</h3>
-                   <p class="product-price"align="center">$15.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;"></span></p><br>
-                   <!-- Add to cart button-->
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6UFF93G3HHZBN" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
+                        <!-- Products-->
+                        <?php 
+                            $proCat = 2;
+                            $size = 6;
+                            getPro($proCat, $size); 
+                        ?>
                    </div>
                </div>
                <div class="col-sm-6">

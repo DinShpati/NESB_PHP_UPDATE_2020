@@ -2,6 +2,7 @@
 
 include 'header.php';
 include 'footer.php';
+include 'functions/functions.php';
 
 ?>
 
@@ -87,167 +88,12 @@ include 'footer.php';
                </main>
                
                <!-- PRODUCTS DIVISION-->
-               <div class="row body">
-                  
-                  <!-- First Product-->
-                   <div class="col-sm-3" align="center">
-                       <div style="background-color:white;max-width:190px;">
-                   <img src="img/oils.jpg" alt="Oils" class="product-image"style="width: 180px;"/></div><br>
-                   <h3 class="product-header">Natural Oils</h3>
-                   <p class="product-price"align="center">$9.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;"></span><br>
-                   1/3 oz per bottle</p>
-                   <!-- Add to cart button-->
-                   <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                        <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="hosted_button_id" value="RS5T5RWA357J4">
-                        <table>
-                        <tr><td><input type="hidden" name="on0" value="Choose an Oil:"><span style="color:white;">Choose an Oil:</span></td></tr><tr><td><select name="os0">
-                            <option value="Aqaba">Aqaba</option>
-                            <option value="Arabian Sandalwood">Arabian Sandalwood</option>
-                            <option value="Bella *NEW OIL*">Bella *NEW OIL*</option>
-                            <option value="Breeze">Breeze</option>
-                            <option value="Black Coconut *NEW OIL*">Black Coconut *NEW OIL* </option>
-                            <option value="China Rain">China Rain </option>
-                            <option value="China Musk">China Musk </option>
-                            <option value="Egyptian Musk">Egyptian Musk </option>
-                            <option value="Glow *NEW OIL*">Glow *NEW OIL* </option>
-                            <option value="Green Musk">Green Musk </option>
-                            <option value="Hejaz">Hejaz *NEW OIL* </option>
-                            <option value="Isma *NEW OIL*">Isma *NEW OIL* </option>
-                            <option value="Mawa">Mawa </option>
-                            <option value="Mali">Mali </option>
-                            <option value="Mist *NEW OIL*">Mist *NEW OIL* </option>
-                            <option value="Myrrh">Myrrh </option>
-                            <option value="Opium">Opium </option>
-                            <option value="Q2000">Q2000 </option>
-                            <option value="Rabia *NEW OIL*">Rabia *NEW OIL* </option>
-                            <option value="Red Musk">Red Musk </option>
-                            <option value="Red Sea">Red Sea </option>
-                            <option value="Roses *NEW OIL*">Roses *NEW OIL* </option>
-                            <option value="Saffron *NEW OIL*">Saffron *NEW OIL* </option>
-                            <option value="Sleek *NEW OIL*">Sleek *NEW OIL* </option>
-                            <option value="Suwais">Suwais *NEW OIL* </option>
-                            <option value="Vanilla Woods *NEW OIL*">Vanilla Woods *NEW OIL* </option>
-                            <option value="Waves *New OIL*">Waves *New OIL* </option>
-                            <option value="Zahra">Zahra *NEW OIL* </option>
-                        </select> </td></tr>
-                        </table><br><br>
-                       <button class="btn btn-success" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"style="margin-top: 5px;">
-                           Add To Cart <i class="fas fa-shopping-cart"></i>
-                       </button>
-                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                        </form>
-                    <!-- Button Ends-->
-                   </div>
-                   <!-- Second Product-->
-                   <div class="col-sm-3 mobile-padding-20-700px" align="center" style="margin-left: 20px;" class="margin-top-15"><br>
-                       <div style="background-color:white;max-width:190px;">
-                   <img src="img/oils.jpg" alt="Oils" class="product-image" style="width: 180px;"/></div><br>
-                   <h3 class="product-header">Natural Oils 2pack</h3>
-                   <p class="product-price"align="center">$14.99 &nbsp;&nbsp;</p>
-                   <!-- Add to cart button-->
-                   <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                        <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="hosted_button_id" value="VLP9W8R52FMY6">
-                        <table>
-                            <tr><td><input type="hidden" name="on0" value="Choose an Oil:"><span style="color:white;">Choose an Oil:</span></td></tr><tr><td><select name="os0">
-                            <option value="Aqaba">Aqaba</option>
-                            <option value="Arabian Sandalwood">Arabian Sandalwood</option>
-                            <option value="Bella *NEW OIL*">Bella *NEW OIL*</option>
-                            <option value="Breeze">Breeze</option>
-                            <option value="Black Coconut *NEW OIL*">Black Coconut *NEW OIL* </option>
-                            <option value="China Rain">China Rain </option>
-                            <option value="China Musk">China Musk </option>
-                            <option value="Egyptian Musk">Egyptian Musk </option>
-                            <option value="Glow *NEW OIL*">Glow *NEW OIL* </option>
-                            <option value="Green Musk">Green Musk </option>
-                            <option value="Hejaz">Hejaz *NEW OIL* </option>
-                            <option value="Isma *NEW OIL*">Isma *NEW OIL* </option>
-                            <option value="Mawa">Mawa </option>
-                            <option value="Mali">Mali </option>
-                            <option value="Mist *NEW OIL*">Mist *NEW OIL* </option>
-                            <option value="Myrrh">Myrrh </option>
-                            <option value="Opium">Opium </option>
-                            <option value="Q2000">Q2000 </option>
-                            <option value="Rabia *NEW OIL*">Rabia *NEW OIL* </option>
-                            <option value="Red Sea">Red Sea </option>
-                            <option value="Roses *NEW OIL*">Roses *NEW OIL* </option>
-                            <option value="Saffron *NEW OIL*">Saffron *NEW OIL* </option>
-                            <option value="Sleek *NEW OIL*">Sleek *NEW OIL* </option>
-                            <option value="Suwais">Suwais *NEW OIL* </option>
-                            <option value="Vanilla Woods *NEW OIL*">Vanilla Woods *NEW OIL* </option>
-                            <option value="Waves *New OIL*">Waves *New OIL* </option>
-                            <option value="Zahra">Zahra *NEW OIL* </option>
-                        </select> </td></tr>
-                            <tr><td><input type="hidden" name="on1" value="Choose Your Second Oil:"><span style="color:white;">Choose Your Second Oil:</span></td></tr><tr><td><select name="os1">
-                            <option value="Aqaba">Aqaba</option>
-                            <option value="Arabian Sandalwood">Arabian Sandalwood</option>
-                            <option value="Bella *NEW OIL*">Bella *NEW OIL*</option>
-                            <option value="Breeze">Breeze</option>
-                            <option value="Black Coconut *NEW OIL*">Black Coconut *NEW OIL* </option>
-                            <option value="China Rain">China Rain </option>
-                            <option value="China Musk">China Musk </option>
-                            <option value="Egyptian Musk">Egyptian Musk </option>
-                            <option value="Glow *NEW OIL*">Glow *NEW OIL* </option>
-                            <option value="Green Musk">Green Musk </option>
-                            <option value="Hejaz">Hejaz *NEW OIL* </option>
-                            <option value="Isma *NEW OIL*">Isma *NEW OIL* </option>
-                            <option value="Mawa">Mawa </option>
-                            <option value="Mali">Mali </option>
-                            <option value="Mist *NEW OIL*">Mist *NEW OIL* </option>
-                            <option value="Myrrh">Myrrh </option>
-                            <option value="Opium">Opium </option>
-                            <option value="Q2000">Q2000 </option>
-                            <option value="Rabia *NEW OIL*">Rabia *NEW OIL* </option>
-                            <option value="Red Sea">Red Sea </option>
-                            <option value="Roses *NEW OIL*">Roses *NEW OIL* </option>
-                            <option value="Saffron *NEW OIL*">Saffron *NEW OIL* </option>
-                            <option value="Sleek *NEW OIL*">Sleek *NEW OIL* </option>
-                            <option value="Suwais">Suwais *NEW OIL* </option>
-                            <option value="Vanilla Woods *NEW OIL*">Vanilla Woods *NEW OIL* </option>
-                            <option value="Waves *New OIL*">Waves *New OIL* </option>
-                            <option value="Zahra">Zahra *NEW OIL* </option>
-                        </select> </td></tr>
-                        </table><br>
-                       <button class="btn btn-success" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">Add To Cart <i class="fas fa-shopping-cart"></i></button>
-                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                        </form>
-                        <!-- Cart Button Ends Here-->
-                   </div>
-                   <!-- 3rd product -->
-                   <div class="col-sm-3 mobile-padding-20-700px" align="center" style="margin-left: 20px;" class="margin-top-15"><br>
-                        <div style="background-color:white;max-width:190px;">
-                       <img src="img/oils.jpg" alt="Oils" class="product-image" style="width: 180px;"/></div><br>
-                       <h3 class="product-header">Exotic & Essential Oils</h3>
-                       <p class="product-price"align="center">$10.00 &nbsp;&nbsp;</p>
-                       <!-- Add to cart button-->
-                       <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                        <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="hosted_button_id" value="LRVKMVZUJVUZ2">
-                        <table>
-                        <tr><td><input type="hidden" name="on0" value="Choose an Oil"><span style="color:white;">Choose an Oil:</span></td></tr><tr><td><select name="os0">
-                            <option value="Almond">Almond </option>
-                        	<option value="Attar 96 Majmua">Attar 96 Majmua </option>
-                        	<option value="Bergamot Musk">Bergamot Musk </option>
-                        	<option value="Bint Al-Madina">Bint Al-Madina </option>
-                        	<option value="Firdaus">Firdaus </option>
-                            <option value="Jasmine">Jasmine </option>
-                        	<option value="Kush">Kush </option>
-                        	<option value="Lavender">Lavender </option>
-                        	<option value="Lemongrass">Lemongrass </option>
-                        	<option value="Patchuli">Patchouli</option>
-                        	<option value="Red Musk">Red Musk </option>
-                        	<option value="Rizwan Musk">Rizwan Musk </option>
-                        </select> </td></tr>
-                        </table><br>
-                        <button class="btn btn-success" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">Add To Cart <i class="fas fa-shopping-cart"></i></button>
-                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                        </form>
-
-                   </div>
-                   <div class="col-sm-3">
-                      <!-- More Products Go here-->
-                   </div>
+               <div class="row body" style="padding: 0 0 50px 0;">
+                    <?php 
+                        $proCat = 5;
+                        $size = 4;
+                        getPro($proCat, $size); 
+                    ?>    
                </div>
            <!-- footer-->
            <?php mainFooter();?>

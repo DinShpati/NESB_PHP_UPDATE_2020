@@ -2,6 +2,7 @@
 
 include 'header.php';
 include 'footer.php';
+include 'functions/functions.php'
 
 ?>
 <!doctype html>
@@ -80,36 +81,15 @@ include 'footer.php';
            </div>
            
            <!-- Products-->
-           <div class="row body">
+           <div class="row body" style="padding: 50px 0 50px 0;">
               
-               <div class="col-md-3" style="margin-left: 30%">
-                  <br><br>
-                   <div style="background-color:white;max-width:190px;" align="center">
-                   <img src="img/incense_product.jpg" alt="SHampoo & Conditioner" class="product-image"style="height: 240px;width: 60%"/></div><br>
-                   <h3 class="product-header" style="margin-left: 40px;">Incense</h3>
-                   <p class="product-price"align="center">$5.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;"></span></p>
-                   <!-- Add to cart button-->
-                   <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                        <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="hosted_button_id" value="V3NMSL58ZM3M8">
-                        <table>
-                            <tr><td><input type="hidden" name="on0" value="Choose a Scent" ><span style="color:white;">Choose a Scent</span></td></tr><tr><td><select name="os0" class="long_drpdwn">
-                            <option value="Bint El Madina">Bint El Madina</option>
-                            <option value="Firdaus">Firdaus </option>
-                            <option value="Sandalwood">Sandalwood </option>
-                            <option value="Superior Egyptian Musk">Superior Egyptian Musk</option>
-                        </select> </td></tr>
-                        </table><br>
-                        <button class="btn btn-success" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">Add To Cart <i class="fas fa-shopping-cart"></i></button>
-                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                    </form>
+                <!-- Products-->
+                <?php 
+                    $proCat = 6;
+                    $size = 12;
+                    getPro($proCat, $size); 
+                ?>    
 
-               </div>
-               <div class="col-md-3">
-               </div>
-               <div class="col-md-3"></div>
-               <div class="col-md-3"></div>
-               <br><br><br><br><br>
            </div>
            
            <?php mainFooter(); ?>

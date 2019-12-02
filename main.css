@@ -166,6 +166,9 @@ body{
   background-color: #617f24b4;
   cursor: pointer;
 }
+.productDropdown > option{
+  background-color: #d5d156;
+}
 .bigpic{
     border:5px solid white;
 }

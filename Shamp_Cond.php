@@ -2,6 +2,7 @@
 
 include 'header.php';
 include 'footer.php';
+include 'functions/functions.php';
 
 ?>
 <!doctype html>
@@ -85,36 +86,15 @@ include 'footer.php';
                </main>
                
                <!-- PRODUCTS -->
-               <div class="row body" style='padding-top: 30px;'>
-                   <!-- Product 1-->
-                   <div class="col-md-3"align="center">
-                   <div style="">
-                   <img src="img/shampoo_cond.jpg" alt="SHampoo & Conditioner" class="product-image"style="width: 200px;"/></div><br>
-                   <h3 class="product-header">Shea Butter Shampoo &amp; Conditioner</h3>
-                   <p class="product-price"align="center">$9.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;"></span></p>
-                   <!-- Add to cart button-->
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XHV3YMWDXXMLN" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
-                   <!-- Product 2-->
-                   <div class="col-md-3 mobile-padding-20"align="center"style="margin-left: 10px;">
-                   <div style="">
-                   <img src="img/shampoo_cond_2pk.jpg" alt="SHampoo & Conditioner" class="product-image" style="width: 200px;"/></div><br>
-                   <h3 class="product-header">Shea Butter Shampoo &amp; Conditioner--2pk</h3>
-                   <p class="product-price"align="center">$16.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;"></span></p>
-                   <!-- Add to cart button-->
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2NQQYPHY2KNFN" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
-                   <!-- Product 3-->
-                   <div class="col-md-3"align="center">
+               <div class="row body" style='padding-top: 30px;padding-bottom:80px;'>
                    
-                   </div>
-                   <!-- Product 4-->
-                   <div class="col-md-3"align="center">
-                   
-                   </div>
+                    <?php 
+                        $proCat = 4;
+                        $size = 3;
+                        getPro($proCat, $size); 
+                    ?>
                    
                </div>
-               
            <!-- footer-->
            <?php mainFooter();?>
        <!-- end footer-->

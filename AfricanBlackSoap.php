@@ -2,6 +2,8 @@
 
 include 'header.php';
 include 'footer.php';
+include 'functions/functions.php';
+
 ?>
 
 <!doctype html>
@@ -113,46 +115,17 @@ include 'footer.php';
            <!-- Slide show ends here-->
            
            <!-- products-->
-           
-               <!-- First Row-->
            <div class="row body"style="padding-top: 20px;">
-                  <!-- Product 1-->
-                   <div class="col-sm-3"align="center">
-                   <div style="background-color:white;max-width:190px;">
-                   <img src="img/blacksoapliqued.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                   <h3 class="product-header">Raw African Black Soap Liquid</h3>
-                   <p class="product-price"align="center">$10.00 &nbsp;&nbsp;<!--<span style="text-decoration: line-through;color:dimgray;">$25.00</span>--></p>
-                   <!-- Add to cart button--><br>
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XYFYJCEGGEVTG" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
-                   <!-- Product 2-->
-                   <div class="col-sm-3"align="center" class="margin-top-15"><br>
-                   <div style="background-color:white;max-width:190px;">
-                   <img src="img/blacksoapliquid2pk.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                   <h3 class="product-header">Raw African Black Soap Liquid (2 Pack)</h3>
-                   <p class="product-price"align="center">$15.00 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;">$17.00</span></p>
-                   <!-- Add to cart button-->
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UARCVURFJ2MR6" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
-                   <!-- Product 3-->
-                   <div class="col-sm-3"align="center" class="margin-top-15"><br>
-                   <div style="background-color:white;max-width:190px;">
-                   <img src="img/blacksoap-productpic.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                   <h3 class="product-header">Raw African Black Soap (Bar)</h3>
-                   <p class="product-price"align="center">$3.99 &nbsp;&nbsp;<!--<span style="text-decoration: line-through;color:dimgray;">$25.00</span>--></p>
-                   <!-- Add to cart button--><br>
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KD2CZFYHT56CS" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div><br>
-                   <!-- Product 4-->
-                   <div class="col-sm-3"align="center" class="margin-top-15"><br>
-                   <div style="background-color:white;max-width:190px;">
-                   <img src="img/blacksoap3pk.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                   <h3 class="product-header">Raw African Black Soap (Bar 3-Pack)</h3>
-                   <p class="product-price"align="center">$9.99 &nbsp;&nbsp;<!--<span style="text-decoration: line-through;color:dimgray;">$25.00</span>--></p>
-                   <!-- Add to cart button--><br>
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PQBCM9B8VXLJA" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
+                  <!-- Products-->
+                  <?php 
+                            $proCat = 3;
+                            $size = 3;
+                            getPro($proCat, $size); 
+                        ?>
                    
+            </div>
+            <div class="row body">
+            <br> <br>
             </div>
            <!-- footer-->
            <?php mainFooter()?>
