@@ -2,6 +2,7 @@
 
 include 'header.php';
 include 'footer.php';
+include 'functions/functions.php';
 
 ?>
 
@@ -117,186 +118,15 @@ include 'footer.php';
                <h2 class="mainHeader"style="margin-top: 10px;margin-left: 10px;"><b>New England Shea Butter LLC.</b></h2>
                
            </div>
+           
            <!-- products-->
            
-               <!-- First Row-->
-           <div class="row body">
-                  <!-- Product 1-->
-                   <div class="col-sm-3 product"align="center">
-                   <div style="background-color:white;max-width:190px;">
-                   <img src="img/WhiteSheaButter.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                   <h3 class="product-header">Raw Shea Butter 16oz White Only</h3>
-                   <p class="product-price"align="center">$19.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;">$24.99</span></p>
-                   <!-- Add to cart button-->
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=H2WYBK7WP8S7G" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
-                   <!-- Product 2-->
-                   <div class="col-sm-3 product"align="center">
-                   <div style="background-color:white;max-width:190px;">
-                       <img src="img/WhiteSheaButter.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                   <h3 class="product-header">Raw Shea Butter 16oz 3-pack White</h3>
-                   <p class="product-price"align="center">$54.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;">$60.00</span></p>
-                   <!-- Add to cart button-->
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AK8T8QED5BUVJ" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
-                   <!-- Product 3-->
-                   <div class="col-sm-3 product"align="center">
-                      <div style="background-color:white;max-width:190px;">
-                          <img src="img/WhiteSheaButter.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                   <h3 class="product-header">Raw Shea Butter 8oz</h3>
-                   <p class="product-price"align="center">$15.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;">$20.00</span></p>
-                   <!-- Add to cart button-->
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8QETCYUVNJ5FY" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
-                   <!-- Product 4-->
-                   <div class="col-sm-3 product"align="center">
-                      <div style="background-color:white;max-width:190px;">
-                          <img src="img/WhiteSheaButter.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                   <h3 class="product-header">Raw Shea Butter 8oz - 3 Pack-White</h3>
-                   <p class="product-price"align="center">$39.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;">$50.00</span></p>
-                   <!-- Add to cart button-->
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DN7D4R2LFCSZA" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
-                   
-               </div>
-               
-               <!--products-->
-                   <!--second row-->
                <div class="row body">
-                  <!-- Product 5-->
-                   <div class="col-sm-3 product"align="center"style="margin-top: 10px;">
-                   <div style="background-color:white;max-width:190px;">
-                       <img src="img/4oz-sheabutter.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                   <h3 class="product-header">Raw Shea Butter 4oz</h3>
-                   <p class="product-price"align="center">$10.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;">$15.00</span></p>
-                   <!-- Add to cart button-->
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QLQWTJ3LSK82J" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
-                   <!-- Product 6-->
-                   <div class="col-sm-3 product"align="center"style="margin-top: 10px;">
-                   <div style="background-color:white;max-width:190px;">
-                       <img src="img/4oz-sheabutter.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                   <h3 class="product-header">Raw Shea Butter 4oz - 3-Pack-White</h3>
-                   <p class="product-price"align="center">$24.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;">$30.00</span></p>
-                   <!-- Add to cart button-->
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YKUHR4A7E4BFQ" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
-                   <!-- Product 7-->
-                   <div class="col-sm-3 product"align="center"style="margin-top: 10px;">
-                      <div style="background-color:white;max-width:190px;">
-                          <img src="img/2oz-sheabutter.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                   <h3 class="product-header">Raw Shea Butter 2oz</h3>
-                   <p class="product-price"align="center">$6.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;">$10.00</span></p>
-                   <!-- Add to cart button-->
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YDMMZXYSXN3NC" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
-                   <!-- Product 8-->
-                   <div class="col-sm-3 product"align="center"style="margin-top: 10px;">
-                      <div style="background-color:white;max-width:190px;">
-                          <img src="img/2oz-sheabutter.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                   <h3 class="product-header">Raw Shea Butter 2oz - 3-pack-White</h3>
-                   <p class="product-price"align="center">$18.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;">$21.00</span></p>
-                   <!-- Add to cart button-->
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZV5EWYCLQKUQN" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
+                    <?php 
+                    $proCat = 1;
+                    getPro($proCat); 
+                    ?>
                </div>
-               
-               <!--products-->
-                   <!--Third row-->
-               <div class="row body">
-                  <!-- Product 5-->
-                   <div class="col-sm-3 product"align="center"style="margin-top: 10px;">
-                   <div style="background-color:white;max-width:190px;">
-                       <img src="img/scented-sheabutter.jpg" alt="Shea Butter" class="product-image1"/></div><br><br>
-                   <h3 class="product-header">Scented Shea Butter -- 4oz</h3>
-                   <p class="product-price"align="center">$15.00 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;"></span></p>
-                   
-                   <!-- Add To CART BUTTTON-->
-                       <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                            <input type="hidden" name="cmd" value="_s-xclick">
-                            <input type="hidden" name="hosted_button_id" value="J4K2FC4UTG63E">
-                            <table>
-                                <tr><td><input type="hidden" name="on0" value="Scents:"><span style="color:white;">Choose a Scent:</span></td></tr><tr><td><select name="os0">
-                                <option value="Almond">Almond </option>
-                                <!--<option value="Bergamot Musk">Bergamot Musk </option>-->
-                                <option value="Cucumber Melon">Cucumber Melon </option>
-                                <option value="Coco Mango">Coco Mango </option>
-                                <option value="Jasmine">Jasmine </option>
-                                <option value="Lavender">Lavender </option>
-                                <option value="Peppermint">Peppermint </option>
-                                <option value="Saffron">Saffron </option>
-                                <option value="Vanilla">Vanilla </option>
-                            </select> </td></tr>
-                            </table><br><br><br><br>
-                            <button class="btn btn-success" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">Add To Cart <i class="fas fa-shopping-cart"></i></button>
-                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                        </form>
-
-                   <!-- Add to cart button ENDS-->
-                   </div>
-                   <!-- Product 6-->
-                   <div class="col-sm-3 product"align="center"style="margin-top: 10px;">
-                   <div style="background-color:white;max-width:190px;">
-                       <img src="img/scented-sheabutter.jpg" alt="Shea Butter" class="product-image1"/></div><br><br>
-                   <h3 class="product-header">Raw Shea Butter 4oz Scented <br>2-pack</h3>
-                   <p class="product-price"align="center">$24.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;"></span></p>
-                   <!-- Add to cart button-->
-                        <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                            <input type="hidden" name="cmd" value="_s-xclick">
-                            <input type="hidden" name="hosted_button_id" value="BU98GXPCZF9UW">
-                            <table>
-                            <tr><td><input type="hidden" name="on0" value="Scent one:"><span style="color:white;">Choose Scent 1:</span></td></tr><tr><td><select name="os0">
-                                <option value="Almond">Almond </option>
-                                <!--<option value="Bergamot Musk">Bergamot Musk </option>-->
-                                <option value="Cucumber Melon">Cucumber Melon </option>
-                                <option value="Coco Mango">Coco Mango </option>
-                                <option value="Jasmine">Jasmine </option>
-                                <option value="Lavender">Lavender </option>
-                                <option value="Peppermint">Peppermint </option>
-                                <option value="Saffron">Saffron </option>
-                                <option value="Vanilla">Vanilla </option>
-                            </select> </td></tr>
-                            <tr><td><input type="hidden" name="on1" value="Scent two:"><span style="color:white;">Choose Scent 2:</span></td></tr><tr><td><select name="os1">
-                                <option value="Almond">Almond </option>
-                                <!--<option value="Bergamot Musk">Bergamot Musk </option>-->
-                                <option value="Cucumber Melon">Cucumber Melon </option>
-                                <option value="Coco Mango">Coco Mango </option>
-                                <option value="Jasmine">Jasmine </option>
-                                <option value="Lavender">Lavender </option>
-                                <option value="Peppermint">Peppermint </option>
-                                <option value="Saffron">Saffron </option>
-                                <option value="Vanilla">Vanilla </option>
-                            </select> </td></tr>
-                            </table>
-                            <br>
-                            <button class="btn btn-success" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">Add To Cart <i class="fas fa-shopping-cart"></i></button>
-                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                        </form>
-
-                    <!-- Add to Cart-->
-                   </div>
-                   <!-- Product 7-->
-                   <div class="col-sm-3 product"align="center"style="margin-top: 10px;">
-                      <div style="background-color:white;max-width:190px;">
-                          <img src="img/1oz-tin.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                   <h3 class="product-header">Raw Shea Butter 1oz</h3>
-                   <p class="product-price"align="center">$3.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;"></span></p>
-                   <!-- Add to cart button-->
-                   <br>
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PNTYUNFS7EUYA" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
-                   <!-- Product 8-->
-                   <div class="col-sm-3 product"align="center"style="margin-top: 10px;">
-                      <div style="background-color:white;max-width:190px;">
-                          <img src="img/1oz-tin.jpg" alt="Shea Butter" class="product-image"/></div><br>
-                   <h3 class="product-header">Raw Shea Butter 1oz - 3-pack-White</h3>
-                   <p class="product-price"align="center">$9.99 &nbsp;&nbsp;<span style="text-decoration: line-through;color:dimgray;"></span></p>
-                   <!-- Add to cart button-->
-                   <br>
-                   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z6DGK9CG9SQ9E" class="btn btn-success" target="_blank">Add To Cart <i class="fas fa-shopping-cart"></i></a>
-                   </div>
-               </div>
-               
                <!-- End Of products-->
                
                <!-- Shea Butter Description-->

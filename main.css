@@ -46,7 +46,7 @@ body{
     background-color:#f9f06a;
     padding:8px;
     float: left;
-    transition: .s;
+    transition: .3s;
 }
 
 .nav-button:hover{
@@ -132,6 +132,9 @@ body{
 .contactus-align{
     margin-left: 34%;
 }
+.product{
+  margin-top: 15px;
+}
 .product-header{
     font-family: comfortaa, sans-serif;
     color: white;
@@ -144,16 +147,24 @@ body{
     width:150px;
     height:inherit;
     padding-top: 5px;
-    
 }
 .product-image1{
     width:190px;
     height:inherit;
     padding-top: 5px;
-    
 }
 .product-price{
     color:white;
+}
+.productDropdown{
+    border-radius: 4px;
+    padding: 3px 5px;
+    background-color: #607f24;
+    margin-bottom: 10px;
+}
+.productDropdown:hover{
+  background-color: #617f24b4;
+  cursor: pointer;
 }
 .bigpic{
     border:5px solid white;
