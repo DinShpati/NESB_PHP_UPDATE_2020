@@ -56,8 +56,11 @@ function getPro($catID, $size){
                 <img src='$pro_image' alt='Shea Butter' class='product-image'/>
             </div><br>
             <h3 class='product-header'>$pro_name</h3>
-            <p class='product-price'align='center'>$$pro_price &nbsp;&nbsp;<br>$pro_desc</p>
-            <form method='post' action='$pageName?add_cart=$pro_id'>";
+            <p class='product-price'align='center'>$$pro_price &nbsp;&nbsp;<br>$pro_desc</p>";
+
+            add_cart();
+
+            echo "<form method='post' action='$pageName?add_cart=$pro_id'>";
 
             if($pro_var_bool){
 
@@ -110,7 +113,7 @@ function getPro($catID, $size){
             }
 
             echo"<!-- Add to cart button-->
-            <button type='submit' name='add_to_cart' class='btn btn-success product-btn'>Add To Cart <i class='fas fa-shopping-cart'></i></button>
+            <button type='submit' name='add_to_cart' class='btn btn-success product-btn' id='sbmit'>Add To Cart <i class='fas fa-shopping-cart'></i></button>
             </form>
             </div>";
 
@@ -122,6 +125,9 @@ function getPro($catID, $size){
  function add_cart(){
 
     global $con;
+    $pageName = basename($_SERVER['PHP_SELF']);
+
+    $variety = "";
 
     if(isset($_GET['add_cart'])){
 
@@ -132,37 +138,54 @@ function getPro($catID, $size){
         $product_qty = 1;
 
         $product_variety = $_POST['var_opt'];
+        $product_variety2 = $_POST['var_opt2'];
+        $product_variety3 = $_POST['var_opt3'];
 
-        $product_variety2 = $_POST['var_opt'];
+        if($product_variety){
+            
+            $variety = $product_variety;
 
-        $product_variety3 = $_POST['var_opt'];
+            if($product_variety2){
 
-        $variety = $product_variety;
+                $variety .= ", " . $product_variety2;
 
-        if($product_variety2){
-            $variety += ", " + $product_variety2;
+                if($product_variety3){
 
-            if($product_variety3){
-                $variety += ", " + $product_variety3;
+                    $variety .= ", " . $product_variety3;
+
+                }
             }
+        }else{
+            $variety = "none";
         }
 
-        $check_product = "SELECT * from cart where IP_ADD='$ip_add' AND P_ID='$p_id'";
+        $check_product = "SELECT * from cart where 'IP_ADD'='$ip_add' AND 'P_ID'='$p_id' AND 'VARIETY'<>'$variety'";
 
         $run_check = mysqli_query($con, $check_product);
 
+        $check_product_same = "SELECT * from cart where 'IP_ADD'='$ip_add' AND 'P_ID'='$p_id' AND 'VARIETY'='$variety'";
+
+        $run_check_product_same = mysqli_query($con, $check_product_same);
+
         if(mysqli_num_rows($run_check)>0){
+            echo "<script>alert('$run_check');</script>";
+            echo "<script>window.open('index.php', '_self')</script>";
 
-            echo "<script>alert('This product has already been added to your cart')</script>";
-            //echo "<script>window.open('details.php?pro_id=$p_id', '_self')</script>";
+        }else if(mysqli_num_rows($run_check_product_same)){
+            $query2 = "UPDATE cart SET QTY = QTY + 1 WHERE 'IP_ADD'='$ip_add' AND 'P_ID'='$p_id' AND 'VARIETY'='$variety'";
 
+            $run_query2 = mysqli_query($con, $query2);
+            echo "<script>alert('$run_check_product_same');</script>";
+            echo "<script>window.open('cart.php', '_self')</script>";
         }else{
 
             $query = "INSERT into cart (P_ID,IP_ADD,QTY,VARIETY) values ('$p_id','$ip_add','$product_qty','$variety')";
 
             $run_query = mysqli_query($con, $query);
 
+            echo "<script>alert('we r doing it!');</script>";
             echo "<script>window.open('cart.php', '_self')</script>";
+            //echo "<script>window.open('cart.php', '_self')</script>";
         }
     }
 

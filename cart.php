@@ -2,6 +2,9 @@
 
 include 'header.php';
 include 'footer.php';
+include 'functions/functions.php';
+
+$userIp = getUserIpAddr();
 
 ?>
 <!doctype html>

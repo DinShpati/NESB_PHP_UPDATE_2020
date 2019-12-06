@@ -37,7 +37,7 @@ $header = "
 
               <!-- MENU TOGGLE BUTTON -->
               <h5 class='damion mobile__nav__text'>New England Shea Butter LLC</h5>
-              <a href='cart.php' class='mobile__Shopping' target='_blank'><i class='fas fa-shopping-cart'></i> <span style='color:forestgreen;font-weight: 700;' >Cart</span></a>
+              <a href='cart.php' class='mobile__Shopping' target='_self'><i class='fas fa-shopping-cart'></i> <span style='color:forestgreen;font-weight: 700;' >Cart</span></a>
               <a href='#nav' class='nav__toggle' role='button' aria-expanded='false' aria-controls='menu'>
                 <svg class='menuicon' xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'>
                   <title>Toggle Menu</title>
@@ -105,7 +105,7 @@ $header = "
                           <a href='WhereToBP.php'class='nav-button nav-link'>Where to Buy our Products?</a>
                         </div>
                       </div>
-                      <a href='cart.php' class='nav-button nav-link' target='_blank'><i class='fas fa-shopping-cart'></i> <span style='color:forestgreen;font-weight: 700;'>Cart</span></a>
+                      <a href='cart.php' class='nav-button nav-link' target='_self'><i class='fas fa-shopping-cart'></i> <span style='color:forestgreen;font-weight: 700;'>Cart</span></a>
                        
                </nav>
                

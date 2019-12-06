@@ -5,7 +5,6 @@ include 'footer.php';
 include 'functions/functions.php';
 
 ?>
-
 <!doctype html>
 <html>
 <head>
