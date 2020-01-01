@@ -1,0 +1,32 @@
+/* Section 1
+============== */
+.section1{
+    margin-top: 20px;
+}
+.createBtn{
+    text-decoration: none;
+    color: black;
+    transition: ease-in-out .4s;
+    padding: 8px 10px;
+    border: 1px solid #546e1f62;
+}
+.createBtn:hover{
+    border: 2px solid #546e1f;
+    color: #546e1f;
+    padding: 12px 14px;
+    font-weight: 600;
+}
+.productTable{
+    display: grid;
+    grid-template-columns: repeat(4, 3fr);
+    text-align: center;
+    grid-gap: 10px;
+}
+.productRow{
+    padding: 10px;
+    border: 1px solid #546e1f;
+    background-color: #cccccc46;
+}
+.productImage{
+    width: 150px;
+}

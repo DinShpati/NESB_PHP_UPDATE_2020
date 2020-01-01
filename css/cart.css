@@ -45,7 +45,47 @@
 	 font-size: 2em;
 	 float: left;
 }
- .heading a.continue:link, .heading a.continue:visited {
+.cartBtn{
+	text-decoration: none;
+	 font-family: 'comfortaa', sans-serif;
+	 letter-spacing: -0.015em;
+	 font-size: 0.75em;
+	 padding: 1em;
+	 color: #fff;
+	 background: #607f24;
+	 font-weight: bold;
+	 border-radius: 50px;
+	 cursor: pointer;
+	 text-align: center;
+	 -webkit-transition: all 0.25s linear;
+	 -moz-transition: all 0.25s linear;
+	 -ms-transition: all 0.25s linear;
+	 -o-transition: all 0.25s linear;
+	 transition: all 0.25s linear;
+}
+.cartBtn:hover{
+	background: #d5d156;
+	color: rgb(59, 59, 59);
+}
+.con{
+	text-decoration: none;
+	 font-family: 'comfortaa', sans-serif;
+	 letter-spacing: -0.015em;
+	 font-size: 0.75em;
+	 padding: 1em;
+	 color: #fff;
+	 background: #607f24 !important;
+	 font-weight: bold;
+	 border-radius: 50px;
+	 float: right;
+	 text-align: right;
+	 -webkit-transition: all 0.25s linear;
+	 -moz-transition: all 0.25s linear;
+	 -ms-transition: all 0.25s linear;
+	 -o-transition: all 0.25s linear;
+	 transition: all 0.25s linear;
+}
+ .continue:link, .continue:visited {
 	 text-decoration: none;
 	 font-family: 'comfortaa', sans-serif;
 	 letter-spacing: -0.015em;
@@ -63,7 +103,7 @@
 	 -o-transition: all 0.25s linear;
 	 transition: all 0.25s linear;
 }
- .heading a.continue:after {
+.continue:after {
 	 content: "\276f";
 	 padding: 0.5em;
 	 position: relative;
@@ -74,10 +114,13 @@
 	 -o-transition: all 0.15s linear;
 	 transition: all 0.15s linear;
 }
- .heading a.continue:hover, .heading a.continue:focus, .heading a.continue:active {
+.continue:hover, .continue:focus, .continue:active {
 	 background: #d5d156;
 }
- .heading a.continue:hover:after, .heading a.continue:focus:after, .heading a.continue:active:after {
+.con:hover, .con:focus, .con:active {
+	background: #d5d156;
+}
+.continue:hover:after, .continue:focus:after, .continue:active:after {
 	 right: -10px;
 }
  .tableHead {
@@ -152,6 +195,9 @@
 	 width: 4em;
 	 float: left;
 }
+.paypalBtn{
+	background-color: rgb(184, 174, 32);
+}
  .cart .items .cartSection.qtyWrap, .cart .items .cartSection.prodTotal {
 	 
 	 text-align: center;
@@ -170,6 +216,7 @@
 }
  .cart .items .cartSection .itemImg {
 	 width: 8em;
+	 max-height: 150px;
 	 display: inline;
 	 padding-right: 1em;
 }
@@ -193,7 +240,8 @@
 .remove {
 	 text-decoration: none;
 	 font-family: 'Montserrat', sans-serif;
-	 color: #fff;
+	 color: #000;
+	 cursor: pointer;
 	 font-weight: bold;
 	 background: #e0e0e0;
 	 padding: 0.5em;
@@ -209,6 +257,7 @@
 }
 .remove:hover {
 	 background: #f30;
+	 cursor: pointer;
 }
  .promoCode {
 	 float: left;
@@ -235,15 +284,16 @@
 	 outline: 0;
 	 
 }
- .promoCode a.btn {
+ .promoCode .btn {
 	 float: left;
 	 width: 15%;
 	 padding: 0.75em 0;
 	 border-radius: 0 1em 1em 0;
 	 text-align: center;
+	 background: #607f24;
 	 border: 1px solid #607f24;
 }
- .promoCode a.btn:hover {
+ .promoCode .btn:hover {
 	 border: 1px solid #d5d156;
 	 background: #d5d156;
 }
@@ -297,6 +347,7 @@
  .subtotal .totalRow {
 	 padding: 0.5em;
 	 text-align: right;
+	 color: #dadada;
 }
  .subtotal .totalRow.final {
 	 font-size: 1.25em;
@@ -317,6 +368,34 @@
 	 color: #dadada;
 	 letter-spacing: -0.025em;
 	 width: 35%;
+}
+.updateQTY{
+	background: #607f24;
+	text-decoration: none;
+	font-family: 'comfortaa', sans-serif;
+	letter-spacing: -0.015em;
+	font-size: 0.75em;
+	padding: 1em;
+	color: #fff;
+	background: #607f24 !important;
+	font-weight: bold;
+	border-radius: 50px;
+	float: center;
+	text-align: right;
+	cursor: pointer;
+	-webkit-transition: all 0.25s linear;
+	-moz-transition: all 0.25s linear;
+	-ms-transition: all 0.25s linear;
+	-o-transition: all 0.25s linear;
+	transition: all 0.25s linear;
+}
+.summary{
+	list-style: none;
+	color: rgb(197, 197, 197);
+}
+.summary > li{
+	padding: 10px;
+	font-size: larger;
 }
  @media only screen and (max-width: 39.375em) {
 	 .wrap {
@@ -358,8 +437,24 @@
 	 .promoCode, .subtotal {
 		 width: 100%;
 	}
-	 a.btn.continue {
+	.btn.continue{
 		 width: 100%;
 		 text-align: center;
 	}
+	.cartBtn{
+		width: 100%;
+		text-align: center;
+	}
+	.textInpt{
+		width: 100% !important;
+	}
 }
+.textInpt{
+	width: 40%;
+	border-radius: 5px;
+	border: none;
+	padding: 6px 6px;
+	font-family: 'comfortaa';
+	margin-bottom: 40px;
+}
+	

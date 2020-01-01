@@ -1,0 +1,15 @@
+@media screen and (max-width: 770px){
+    main{
+        margin: 100px 10% 0 10%;
+        padding: 20px;
+        border-radius: 20px;
+        border: 1px solid rgba(70, 70, 70, 0.596);
+        -webkit-box-shadow: 0px 0px 24px 1px #303030bf;
+        -moz-box-shadow: 0px 0px 24px 1px #303030bf;
+        box-shadow: 0px 0px 24px 1px #303030bf;
+    }
+}
+@media screen and (max-height: 450px) {
+    #sideNav {padding-top: 15px;}
+    #sideNav a {font-size: 18px;}
+}

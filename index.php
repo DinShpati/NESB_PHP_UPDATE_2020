@@ -4,6 +4,8 @@ include 'header.php';
 include 'footer.php';
 include 'functions/functions.php';
 
+add_cart();
+
 ?>
 <!doctype html>
 <html>

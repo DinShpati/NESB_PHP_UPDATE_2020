@@ -1,0 +1,28 @@
+.section1{
+    text-align: center;
+}
+.productTable{
+    display: grid;
+    grid-template-columns: repeat(4, 3fr);
+    grid-gap: 20px;
+}
+.productResult a{
+    text-decoration: none;
+    color: black;
+}
+.productImage{
+    width: 150px;
+}
+.createBtn{
+    text-decoration: none;
+    color: black;
+    transition: ease-in-out .4s;
+    padding: 8px 10px;
+    border: 1px solid #546e1f62;
+}
+.createBtn:hover{
+    border: 2px solid #546e1f;
+    color: #546e1f;
+    padding: 12px 14px;
+    font-weight: 600;
+}

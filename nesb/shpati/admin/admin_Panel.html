@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Panel</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/mobileMain.css">
+    <main><link rel="stylesheet" href="css/mainPage.css"></main>
+
+    <!--Font aawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Damion|Happy+Monkey|Pacifico" rel="stylesheet">
+</head>
+<body>
+    <div id="sideNav" >
+        <div class="profileContainer" align="center">
+            <img src="img/profile.png" alt="" class="profilePic">
+            <h5 class="profileName">User Name</h5>
+            <h5 class="profileName">UserN@example.com</h5>
+            <a href="" class="btn btn-md">Sign Out</a>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="sideLinkContainer">
+            <a href="" class="sideNavLink simpleLink"><i class="fas fa-th"></i> &nbsp;Products</a><br><br>
+            <a href="" class="sideNavLink simpleLink"><i class="fas fa-list-alt"></i> &nbsp;Categories</a><br><br>
+            <a href="" class="sideNavLink simpleLink"><i class="fas fa-search"></i> &nbsp;Product Finder</a><br><br>
+            <a href="" class="sideNavLink simpleLink"><i class="fas fa-list-ol"></i> &nbsp;Orders</a><br><br>
+            <a href="" class="sideNavLink simpleLink"><i class="fas fa-envelope-open-text"></i> &nbsp;Newsletter</a><br><br>
+            <a href="" class="sideNavLink simpleLink"><i class="fab fa-paypal"></i> &nbsp;Paypal Order Finder</a><br><br>
+            <a href="" class="sideNavLink simpleLink"><i class="fas fa-signal"></i> &nbsp;Stats</a><br><br>
+            <a href="" class="sideNavLink simpleLink"><i class="fas fa-users"></i> &nbsp;Users</a><br><br>
+        </div>
+    </div>
+    <main id="main">
+        <nav id="navbar">
+            <ul>
+                <li>
+                    <button class="btn btn-sm" style="max-height: 38px;"><i class="fas fa-cog"></i></button>
+                    <form action="" method="get">
+                        <input class="input" type="text" name="orderSearch" id="orderSearch" placeholder="Search for orders by email: " style="width: 200px;">
+                        <button type="submit" class="btn btn-sm">Search</button>
+                    </form>
+                </li>
+                <li>
+                    <span style="text-align:center; font-size: 11px;font-weight: 600;color: white;background-color: rgb(236, 51, 51);padding: 1px;max-height: 12px;width: 12px;border-radius: 50%;
+                    left: 40px;top:2px; position: relative;">3</span>
+                    <button class="notification"><i class="fas fa-bell"></i></button>
+                    <img src="img/profile.png" alt="" class="profilePic">
+                    <h5 class="profileName">User Name</h5>
+                </li>
+            </ul>
+        </nav>
+        <div class="dashboard">
+            <div style="display: flex;justify-content: space-between;">
+                <div><h4 id="todaysDate" style="color: #546e1f; text-decoration: underline;">Todays Date: 12/30/2019</h4></div>
+                <div><h4 id="currentTime" style="color: #546e1f; text-decoration: underline;">12:30pm</h4></div>
+            </div>
+
+            <h2>Welcome to your dashboard User Name</h2>
+            <hr>
+            
+            <div class="statsContainer">
+                <div class="statsDiv">
+                    <h4>Totals...</h4>
+                    <ul>
+                        <li>Total income this year: <span style="background-color: darkkhaki;padding: 7px;border-radius: 8px;">$11,000</span></li>
+                        <li>Total income this month: <span style="background-color: darkkhaki;padding: 7px;border-radius: 8px;">$1000</span></li>
+                        <li>Total income this week: <span style="background-color: darkkhaki;padding: 7px;border-radius: 8px;">$267</span></li>
+                    </ul>
+                </div>
+                <div class="statsDiv statsBx2 col-2">
+                    <div class="smallDivStyles">
+                        <h5>Total Sales</h5>
+                        <h5>125</h5>
+                    </div>
+                    <div class="smallDivStyles">
+                        <h5>New Orders</h5>
+                        <h5>12</h5>
+                    </div>
+                    <div class="smallDivStyles">
+                        <h5>....</h5>
+                        <h5>......</h5>
+                    </div>
+                    <div class="smallDivStyles">
+                        <h5>...</h5>
+                        <h5>......</h5>
+                    </div>
+                </div>
+                <div class="statsDiv statsBx3">
+                    <h4>Top 3 Products of 2019</h4>
+                    <ol>
+                        <li>
+                            <h5>After Bath - we sold 123 pcs</h5>
+                        </li>
+                        <li>
+                            <h5>16oz Raw Shea Butter - we sold 100 pcs</h5>
+                        </li>
+                        <li>
+                            <h5>Black Soap Bars - we sold 93 pcs</h5>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <br>
+            <div class="statsContainer2">
+                <div class="statsDiv statsBx4">
+                    <h5>Recent Orders</h5>
+
+                    <div class="col-3">
+                        <div><h5 style="font-weight: 600; text-decoration: underline; font-size: 16px;">Customer Email</h5></div>
+                        <div><h5 style="font-weight: 600; text-decoration: underline; font-size: 16px;">Order Total</h5></div>
+                        <div><h5 style="font-weight: 600; text-decoration: underline; font-size: 16px;">Order Date</h5></div>
+                    </div>
+                    <div class="col-3">
+                        <div><h5>example@example.com</h5></div>
+                        <div><h5>$67.82</h5></div>
+                        <div><h5>12/12/2019</h5></div>
+                    </div>
+                    <div class="col-3">
+                        <div><h5>example@example.com</h5></div>
+                        <div><h5>$67.82</h5></div>
+                        <div><h5>12/12/2019</h5></div>
+                    </div>
+                    <div class="col-3">
+                        <div><h5>example@example.com</h5></div>
+                        <div><h5>$67.82</h5></div>
+                        <div><h5>12/12/2019</h5></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

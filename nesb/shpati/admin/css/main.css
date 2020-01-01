@@ -1,0 +1,175 @@
+*{
+    font-family: comfortaa, sans-serif;
+}
+body{
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    margin: 0;
+    background-color: #f1f1f1;
+}
+.input{
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 1px solid #607f24;
+    transition: ease-in-out .3s;
+    width: 88%;
+}
+.input:hover{
+    border: 1px solid #d5d156;
+}
+.btn{
+    border-radius: 5px;
+    padding: 10px 16px;
+    border: none;
+    font-size: 20px;
+    width: 100%;
+    color: white;
+    background-color: #607f24;
+    transition: ease-in-out .3s;
+    text-decoration: none;
+}
+.btn.btn-md{
+    border-radius: 5px;
+    border: none;
+    padding: 8px 11px;
+    font-size: 18px;
+    width: inherit;
+    color: white;
+    background-color: #607f24;
+    transition: ease-in-out .3s;
+}
+.btn.btn-sm{
+    border-radius: 5px;
+    border: none;
+    padding: 5px 8px;
+    font-size: 20px;
+    width: inherit;
+    color: white;
+    background-color: #607f24;
+    transition: ease-in-out .3s;
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: #485f1a;
+}
+
+/* color classes*/
+.primary{
+    color: #546e1f;
+}
+.secondary{
+    color: #d5d156;
+}
+
+/*Headers*/
+.h1{
+    font-size: 3rem;
+}
+
+/* Extras (Shortcuts) */
+.center{
+    text-align: center;
+}
+.img-respnsive{
+    width: 80%;
+    min-width: 130px;
+}
+.simpleLink{
+    font-size: 16px;
+    color: #1f1f1f;
+    text-decoration: none;
+    padding: 14px 16px;
+    margin-left: 5px;
+    transition: ease-in-out .1s;
+}
+.simpleLink:hover{
+    border-left: 3px solid#546e1f;
+    background-color: #f1f1f13a;
+}
+.notification{
+    background: transparent;
+    max-height: 38px;
+    font-size: 19px;
+    color: #1f1f1f;
+    border: none;
+}
+.notification:hover{
+    cursor: pointer;
+    color: rgb(61, 61, 61);
+}
+
+/* Images */
+.profilePic{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.profileName{
+    margin-top: 20px !important;
+    margin-right: 20px !important;
+}
+
+/* Grid System */
+#main{
+    margin: 20px 20px 0 26%;
+}
+
+/* Side Navigation */
+
+#sideNav {
+    height: 100%;
+    width: 25%;
+    position: absolute;
+    z-index: 0;
+    border-radius: 3px;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+#sideNav *{
+    color: white;
+}
+.profileContainer{
+    margin-top: 10px;
+}
+
+
+/* navigation bar */
+#navbar{
+    background-color: white;
+    padding: 1px;
+    border-radius: 5px;
+}
+#navbar > ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+#navbar > ul > li{
+    display: flex;
+}
+#navbar > ul > li *{
+    margin: 4px;
+}
+
+/* The dashboard and stats section */
+.dashboard{
+    text-align: center;
+    padding: 20px 0 20px 0;
+}
+
+/* Grid Columns */
+.col-2{
+    display: grid;
+    grid-template-columns: repeat(2, 6fr);
+    grid-gap: 10px;
+}
+.col-3{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
