@@ -1,3 +1,7 @@
+<?php
+    include("includes/db.php");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +14,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/mobile.css">
 
-    <!--Font aawesome-->
+    <!--Font awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
@@ -24,14 +28,44 @@
         <img src="img/nesb.png" alt="New England Shea Butter, LLC." class="img-respnsive">
         
 
-        <form action="" style="margin-top: 20px;text-align: center;margin-left: 10%;margin-right: 10%;">
+        <form method="post" action="signUp.php" style="margin-top: 20px;text-align: center;margin-left: 10%;margin-right: 10%;">
             <input class="input" type="email" name="email" id="email" placeholder="Enter your username">
             <br><br>
-            <input class="input" type="text" name="pass" id="pass" placeholder="Enter your password">
+            <input class="input" type="password" name="password" id="pass" placeholder="Enter your password">
             <br><br>
-            <button class="btn">Enter</button>
+            <button class="btn" type="submit" name="login">Enter</button>
         </form>
     </main>
 
 </body>
 </html>
+<?php
+// include("includes/db.php"); 
+	
+// 	if(isset($_POST['login'])){
+	
+// 		$email = mysqli_real_escape_string($con, $_POST['email']);
+//         $pass = mysqli_real_escape_string($con, $_POST['password']);
+//         $hash = password_hash($pass, PASSWORD_DEFAULT);
+	
+// 	$sel_user = "INSERT INTO admin (ADMIN_EMAIL, ADMIN_PASS) values ('$email','$hash')";
+	
+//     $run_user = mysqli_query($con, $sel_user); 
+    
+// 	$check_user = mysqli_num_rows($run_user); 
+	
+// 	if($check_user == 1){
+	
+	
+// 	echo "<script>alert('HAHA DUDE IT WORLED!!!!!!!!!')</script>";
+	
+// 	}
+// 	else {
+	
+// 	echo "<script>alert('Password or Email is wrong, try again!')</script>";
+	
+// 	}
+	
+	
+//     }
+    ?>

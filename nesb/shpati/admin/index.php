@@ -1,3 +1,31 @@
+<?php
+    include("includes/db.php");
+    include("includes/functions.php");
+
+    session_start();
+
+    if(!isset($_SESSION['username'])){
+        
+       echo "<script>window.open('login.php?not_admin=You are not an Admin!','_self')</script>";
+    }
+    else {
+    
+?>
+<?php
+    global $con;
+
+    $get_admin_info = "SELECT * FROM admin";
+
+    $run_admin_info = mysqli_query($con, $get_admin_info);
+
+    while($row_admin_info = mysqli_fetch_array($run_admin_info)){
+
+        $admin_e = $row_admin_info['ADMIN_EMAIL'];
+        $admin_user = $row_admin_info['ADMIN_USERNAME'];
+        $admin_img = $row_admin_info['ADMIN_IMG'];
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,9 +47,9 @@
 <body>
     <div id="sideNav" >
         <div class="profileContainer" align="center">
-            <img src="img/profile.png" alt="" class="profilePic">
-            <h5 class="profileName">User Name</h5>
-            <h5 class="profileName">UserN@example.com</h5>
+            <img src="img/<?php echo "$admin_img"; ?>" alt="" class="profilePic">
+            <h5 class="profileName"><?php echo "$admin_user"; ?></h5>
+            <h5 class="profileName"><?php echo "$admin_e"; ?></h5>
             <a href="" class="btn btn-md">Sign Out</a>
         </div>
         <br>
@@ -52,8 +80,8 @@
                     <span style="text-align:center; font-size: 11px;font-weight: 600;color: white;background-color: rgb(236, 51, 51);padding: 1px;max-height: 12px;width: 12px;border-radius: 50%;
                     left: 40px;top:2px; position: relative;">3</span>
                     <button class="notification"><i class="fas fa-bell"></i></button>
-                    <img src="img/profile.png" alt="" class="profilePic">
-                    <h5 class="profileName">User Name</h5>
+                    <img src="img/<?php echo "$admin_img"; ?>" alt="" class="profilePic">
+                    <h5 class="profileName"><?php echo "$admin_user"; ?></h5>
                 </li>
             </ul>
         </nav>
@@ -63,26 +91,25 @@
                 <div><h4 id="currentTime" style="color: #546e1f; text-decoration: underline;">12:30pm</h4></div>
             </div>
 
-            <h2>Welcome to your dashboard User Name</h2>
+            <h2>Welcome to your dashboard <?php echo "$admin_user"; ?></h2>
             <hr>
             
             <div class="statsContainer">
                 <div class="statsDiv">
                     <h4>Totals...</h4>
                     <ul>
-                        <li>Total income this year: <span style="background-color: darkkhaki;padding: 7px;border-radius: 8px;">$11,000</span></li>
-                        <li>Total income this month: <span style="background-color: darkkhaki;padding: 7px;border-radius: 8px;">$1000</span></li>
-                        <li>Total income this week: <span style="background-color: darkkhaki;padding: 7px;border-radius: 8px;">$267</span></li>
+                        <li>Total income this year: <span style="background-color: darkkhaki;padding: 7px;border-radius: 8px;">$<?php echo yearIncome(); ?></span></li>
+                        <li>Total income this month: <span style="background-color: darkkhaki;padding: 7px;border-radius: 8px;">$<?php echo monthIncome(); ?></span></li>
                     </ul>
                 </div>
                 <div class="statsDiv statsBx2 col-2">
                     <div class="smallDivStyles">
                         <h5>Total Sales</h5>
-                        <h5>125</h5>
+                        <h5><?php echo totalSales(); ?></h5>
                     </div>
                     <div class="smallDivStyles">
                         <h5>New Orders</h5>
-                        <h5>12</h5>
+                        <h5><?php echo unfinishedOrder() ?></h5>
                     </div>
                     <div class="smallDivStyles">
                         <h5>....</h5>
@@ -97,13 +124,13 @@
                     <h4>Top 3 Products of 2019</h4>
                     <ol>
                         <li>
-                            <h5>After Bath - we sold 123 pcs</h5>
+                            <h5>After Bath</h5>
                         </li>
                         <li>
-                            <h5>16oz Raw Shea Butter - we sold 100 pcs</h5>
+                            <h5>16oz Raw Shea Butter</h5>
                         </li>
                         <li>
-                            <h5>Black Soap Bars - we sold 93 pcs</h5>
+                            <h5>Black Soap Bars</h5>
                         </li>
                     </ol>
                 </div>
@@ -118,6 +145,9 @@
                         <div><h5 style="font-weight: 600; text-decoration: underline; font-size: 16px;">Order Total</h5></div>
                         <div><h5 style="font-weight: 600; text-decoration: underline; font-size: 16px;">Order Date</h5></div>
                     </div>
+
+                    <?php recentOrders(); ?>
+
                     <div class="col-3">
                         <div><h5>example@example.com</h5></div>
                         <div><h5>$67.82</h5></div>
@@ -142,3 +172,5 @@
     <script src="js/main.js"></script>
 </body>
 </html>
+
+<?php } ?>
