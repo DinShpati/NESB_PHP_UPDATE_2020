@@ -1,0 +1,55 @@
+.insertEditForm{
+    padding: 40px 30px;
+    margin: 20px 20%;
+    text-align: center;
+    font-family: comfortaa, sans-serif;
+    border: 2px solid #607f24;
+    border-radius: 20px;
+    background-color: #d5d1565d;
+}
+.insertEditForm:first-child h1{
+    text-decoration: underline;
+    color: #729924;
+}
+.highlightedWords{
+    color: #d55656;
+    text-decoration: underline;
+}
+.insertEditForm input{
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 20px;
+    border-radius: 4px;
+    border: 1px solid #607f24;
+    outline: none;
+}
+.insertEditForm select, option{
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 20px;
+    border-radius: 4px;
+    border: 1px solid #607f24;
+    outline: none;
+}
+.insertEditForm h5{
+    color: #0010f5;
+}
+.insertEditForm h6{
+    color: #f50000;
+}
+.insertEditForm button{
+    width: 100%;
+    padding: 15px 10px;
+    background-color: #607f24;
+    color: white;
+    font-family: comfortaa;
+    transition: ease-in-out .4s;
+    font-weight: 600;
+}
+.insertEditForm button:hover, button:active, button:focus{
+    cursor: pointer;
+    background-color: #4e681c;
+    color: white;
+    font-family: comfortaa;
+    font-weight: 600;
+}

@@ -1,6 +1,6 @@
 <?php
 
-include("includes/db.php");
+include("db.php");
 
 
 //Getting the income of this year,this month, and this week
@@ -96,5 +96,7 @@ function recentOrders(){
     //Will work on thsi after the primary stuff is done -----
 
 }
+
+
 
 ?>

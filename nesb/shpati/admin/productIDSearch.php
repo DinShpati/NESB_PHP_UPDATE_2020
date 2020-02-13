@@ -87,7 +87,7 @@
                 </li>
             </ul>
         </nav>
-        <div class="dashboard">
+        <div class="dashboard" style="text-align: center">
             <div style="display: flex;justify-content: space-between;">
                 <div><h4 id="todaysDate" style="color: #546e1f; text-decoration: underline;">Todays Date: 12/30/2019</h4></div>
                 <div><h4 id="currentTime" style="color: #546e1f; text-decoration: underline;">12:30pm</h4></div>
@@ -98,17 +98,55 @@
             
             <?php
 
+            global $con;
+
+            if(isset($_GET['results'])){
+
+                $search_query = $_GET['results'];
+
+                $get_q = "SELECT * from products where PRODUCT_ID='$search_query'";
+
+                $run_pro = mysqli_query($con, $get_q);
+
+                while($row_pro=mysqli_fetch_array($run_pro)){
+
+                    $pro_id = $row_pro['PRODUCT_ID'];
+                    $pro_cat = $row_pro['PRODUCT_CAT'];
+                    $pro_name = $row_pro['PRODUCT_NAME'];
+                    $pro_price = $row_pro['PRODUCT_PRICE'];
+                    $pro_var = $row_pro['PRODUCT_VARIETY'];
+                    $pro_var2 = $row_pro['PRODUCT_VARIETY2'];
+                    $pro_var3 = $row_pro['PRODUCT_VARIETY3'];
+                    $pro_image = $row_pro['PRODUCT_IMG'];
+
+                    echo "
+                    <div style='border: 1px solid #607f24;max-width:300px;'>
+                    <h5 class='product_title'>ID: $pro_id</h5>
+                    <img src='../../../$pro_image' class='product_img' width='200px'>
+                    <h4 class='product_title'>$pro_name</h4>
+                    <h5 class='price_title'>$$pro_price</h5><hr>
+                    <h5 class='price_title'>$pro_var</h5><hr>
+                    <h5 class='price_title'>$pro_var2</h5><hr>
+                    <h5 class='price_title'>$pro_var3</h5>
+                    </div>
+                    ";
+
+
+                        }
+                    
+                    
+                    }
+
+            ?>
+
+            <?php
+
                 if(isset($_GET['products'])){
                     include("products.php");
                 }
                 if(isset($_GET['categories'])){
                     include("categories.php");
                 }
-                else{
-                                    
-                    include("stats.php"); 
-                    
-                    }
 
             ?>
 
