@@ -115,7 +115,7 @@ add_cart();
            <!-- Slide show ends here-->
            
            <!-- products-->
-           <div class="row body"style="padding-top: 20px;">
+           <div class="row body"style="padding-top: 20px;padding-bottom:60px;">
                   <!-- Products-->
                   <?php 
                             $proCat = 3;
@@ -124,6 +124,139 @@ add_cart();
                         ?>
                    
             </div>
+
+            <!-- Black soap descript/information -->
+            <div class="row body comfortaa" style="padding: 60px 5% 40px 5%; border-top: 2px solid white;">
+
+              <h4>1. It's antibacterial</h4>
+              <br>
+              <p>Natural antibacterial properties make African black soap an excellent alternative to chemical-laden cleansers. In fact, it may actually remove more bacteria than chemical cleansers do. Despite its strength, black soap is gentle enough to use on your face, hands, and body.</p>
+              <br>
+              <div style="height:1px;width:100%;background-color:rgba(255, 255, 255, 0.4);"></div>
+              <br>
+
+              <h4>2. It's safe for all skin types</h4>
+              <br>
+              <p>If you have dry or sensitive skin, you know that scented soaps and lotions are off-limits. African black soap is naturally fragrance-free — just make sure your chosen product is labeled "unscented."<br><br>
+              People with oily or combination skin are also in the clear! Black soap can help balance your skin's natural oil production without stripping necessary oils or adding excess oil to your skin.
+              </p>
+              <br>
+              <div style="height:1px;width:100%;background-color:rgba(255, 255, 255, 0.4);"></div>
+              <br>
+
+              <h4>3. It's moisturizing</h4>
+              <br>
+              <p>Shea butter is a crucial ingredient in black soap. While shea can help relieve itchiness and soothe dry skin, cocoa and coconut oil add moisture.
+              </p>
+              <br>
+              <div style="height:1px;width:100%;background-color:rgba(255, 255, 255, 0.4);"></div>
+              <br>
+
+              <h4>4. It won't make your skin oily</h4>
+              <br>
+              <p>If you have combination skin, this makes choosing the right soap that much easier. Shea may add moisture, but coconut oil may help prevent overactive oil glands.
+              </p>
+              <br>
+              <div style="height:1px;width:100%;background-color:rgba(255, 255, 255, 0.4);"></div>
+              <br>
+
+              <h4>5. It helps soothe irritation</h4>
+              <br>
+              <p>African black soap may also soothe itchiness and irritation caused by eczema, contact dermatitis, and skin allergies. It may even help clear rashes related to eczema and psoriasis. To maximize these benefits, find a soap with oatmeal added.
+              </p>
+              <br>
+              <div style="height:1px;width:100%;background-color:rgba(255, 255, 255, 0.4);"></div>
+              <br>
+
+              <h4>6. It's anti-inflammatory</h4>
+              <br>
+              <p>Black soap is rich in vitamins A and E. These vitamins are both antioxidants, which help combat free radicals and attacks on otherwise healthy skin tissues. This may be helpful for people who have inflammatory conditions like rosacea.
+              </p>
+              <br>
+              <div style="height:1px;width:100%;background-color:rgba(255, 255, 255, 0.4);"></div>
+              <br>
+
+              <h4>7. It helps fight acne</h4>
+              <br>
+              <p>On that note, black soap may also help fight acne. In addition to balancing your skin's natural oils, the soap's shea content may help repair damaged cells. Its antimicrobial properties may even clear severe acne caused by Propionibacterium acnes bacteria.
+              </p>
+              <br>
+              <div style="height:1px;width:100%;background-color:rgba(255, 255, 255, 0.4);"></div>
+              <br>
+              
+              <h4>8. It may help reduce fine lines</h4>
+              <br>
+              <p>Shea butter and coconut oil may help reduce collagen loss and encourage new development. In turn, this can help plump up fine lines and wrinkles. The rough texture of the soap can also exfoliate dead skin cells that make fine lines more noticeable.
+              </p>
+              <br>
+              <div style="height:1px;width:100%;background-color:rgba(255, 255, 255, 0.4);"></div>
+              <br>
+
+              <h4>9. It helps protect against photoaging</h4>
+              <br>
+              <p>Antioxidants found in shea butter can help protect your skin from photoaging. Over time, sun exposure can cause sun spots (age spots), but black soap may offer another barrier.
+              </p>
+              <br>
+              <div style="height:1px;width:100%;background-color:rgba(255, 255, 255, 0.4);"></div>
+              <br>
+              
+              <h4>10. It helps improve skin texture</h4>
+              <br>
+              <p>African black soap is chock-full of natural ingredients, but part of its benefits come from its form. When left unprocessed, the raw ingredients that make up black soap leave the product far less smooth than the average drugstore soap bar. This makes it a natural exfoliant, which may help improve skin texture.
+              </p>
+              <br>
+              <div style="height:1px;width:100%;background-color:rgba(255, 255, 255, 0.4);"></div>
+              <br>
+
+              <h4>11. It helps prevent razor burn and related rashes</h4>
+              <br>
+              <p>Exfoliation is another key factor in keeping your skin smooth after shaving, waxing, or other methods of hair removal. Exfoliating will help remove dead skin cells before they can clog your hair follicles. The moisture in African black soap may also help prevent the lumps and bumps that result from razor burn.
+              </p>
+              <br>
+              <div style="height:1px;width:100%;background-color:rgba(255, 255, 255, 0.4);"></div>
+              <br>
+              
+              <h4>12. It helps reduce hyperpigmentation</h4>
+              <br>
+              <p>Hyperpigmentation is often caused by acne scarring and sun damage — two things that African black soap may help soothe or prevent.
+              </p>
+              <br>
+              <div style="height:1px;width:100%;background-color:rgba(255, 255, 255, 0.4);"></div>
+              <br>
+
+              <h4>13. It may help minimize the appearance of scars and stretch marks</h4>
+              <br>
+              <p>Thanks to its shea butter and vitamin E content, black soap may help reduce the redness and overall appearance of stretch marks and other scars. It may also help minimize related itchiness.
+              </p>
+              <br>
+              <div style="height:1px;width:100%;background-color:rgba(255, 255, 255, 0.4);"></div>
+              <br>
+
+              <h4>14. It's antifungal</h4>
+              <br>
+              <p>One study on the effects of African black soap found the product effective for seven types of fungus — this includes the common Candida albicans yeast. You can safely use African black soap to help treat conditions like toenail fungus and athlete's foot.
+              </p>
+              <br>
+              <div style="height:1px;width:100%;background-color:rgba(255, 255, 255, 0.4);"></div>
+              <br>
+
+              <h4>Where do all these benefits come from?</h4>
+              <br>
+              <p>The benefits of African black soap lie in its ingredients. This includes a combination of:
+              </p>
+              <ul class="blackSoapIngredientsList">
+                <li style="margin: 10px 0">cocoa pods</li>
+                <li style="margin: 10px 0">coconut oil</li>
+                <li style="margin: 10px 0">palm tree leaf derivatives, including palm kernel oil and palm oil</li>
+                <li style="margin: 10px 0">plantain bark, which contains iron, as well as vitamins A and E</li>
+                <li style="margin: 10px 0">shea butter</li>
+              </ul>
+              <br>
+
+
+
+            </div>
+
             <div class="row body">
             <br> <br>
             </div>
