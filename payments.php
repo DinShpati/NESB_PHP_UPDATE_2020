@@ -78,6 +78,10 @@
                     $pro_qty = $row_cart['QTY'];
                     $pro_var = $row_cart['VARIETY'];
 
+                    if(!($pro_var) || $pro_var == " "){
+                        $pro_var = '0';
+                    }
+
                     $get_products = "SELECT * from products where PRODUCT_ID='$pro_id'";
 
                     $run_products = mysqli_query($con, $get_products);

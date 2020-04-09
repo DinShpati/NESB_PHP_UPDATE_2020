@@ -4,10 +4,8 @@
 function mainHeader(){
 
 $header = "
-
 <div class='bg-mb-rp' style=''>
    <div> <!-- extra div for background image -->
-       
        
            <!--MOBILENAVBAR Starts Here-->
            <header class='header5' role='banner'>
@@ -71,9 +69,11 @@ $header = "
                     </p>
                     <p style='color:white; font-family: sans-serif;' class='numnum'>917-803-6734</p>
                     <p class='nesbmail1'><b>NESB.SALES@Gmail.com</b></p>
+                    
                </div>
                <!--<div class='col-sm-2 display-none' style='margin-top: 10px;'>
                    <p class=''><b>917-803-6734</b></p>
+                </div>
                </div>-->
                <div class='col-sm-5 display-none' style='margin-top: 10px;'>
                    <p class='nesbmail' style='color: white;text-shadow: 3px 3px 9px #000;'><b>NESB.SALES@Gmail.com</b></p>
