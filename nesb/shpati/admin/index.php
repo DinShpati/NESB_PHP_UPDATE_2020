@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/products.css">
     <link rel="stylesheet" href="css/mobileMain.css">
+    <link rel="stylesheet" href="includes/editAndInsert.css">
     <main><link rel="stylesheet" href="css/mainPage.css"></main>
 
     <!--Font aawesome-->
@@ -59,9 +60,9 @@
         <div class="sideLinkContainer">
             <a href="index.php" class="sideNavLink simpleLink"><i class="fas fa-home"></i> &nbsp;Home</a><br><br>
             <a href="index.php?products" class="sideNavLink simpleLink"><i class="fas fa-th"></i> &nbsp;Products</a><br><br>
-            <a href="" class="sideNavLink simpleLink"><i class="fas fa-list-alt"></i> &nbsp;Categories</a><br><br>
-            <a href="" class="sideNavLink simpleLink"><i class="fas fa-search"></i> &nbsp;Product Finder</a><br><br>
-            <a href="" class="sideNavLink simpleLink"><i class="fas fa-list-ol"></i> &nbsp;Orders</a><br><br>
+            <a href="index.php?categories" class="sideNavLink simpleLink"><i class="fas fa-list-alt"></i> &nbsp;Categories</a><br><br>
+            <!-- <a href="" class="sideNavLink simpleLink"><i class="fas fa-search"></i> &nbsp;Product Finder</a><br><br> -->
+            <a href="index.php?orders" class="sideNavLink simpleLink"><i class="fas fa-list-ol"></i> &nbsp;Orders</a><br><br>
             <a href="" class="sideNavLink simpleLink"><i class="fas fa-envelope-open-text"></i> &nbsp;Newsletter</a><br><br>
             <a href="" class="sideNavLink simpleLink"><i class="fab fa-paypal"></i> &nbsp;Paypal Order Finder</a><br><br>
             <a href="" class="sideNavLink simpleLink"><i class="fas fa-signal"></i> &nbsp;Stats</a><br><br>
@@ -101,14 +102,29 @@
                 if(isset($_GET['products'])){
                     include("products.php");
                 }
-                if(isset($_GET['categories'])){
+                else if(isset($_GET['categories'])){
                     include("categories.php");
+                }
+                else if(isset($_GET['insertProduct'])){
+                    include("includes/insertProducts.php");
+                }
+                else if(isset($_GET['edit_pro'])){
+                    include("includes/editProducts.php");
+                }
+                else if(isset($_GET['insertCat'])){
+                    include("includes/insertCat.php");
+                }
+                else if(isset($_GET['orders'])){
+                    include("orders.php");
+                }
+                else if(isset($_GET['orderDetail'])){
+                    include("includes/orderDetail.php");
                 }
                 else{
                                     
                     include("stats.php"); 
                     
-                    }
+                }
 
             ?>
 

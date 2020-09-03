@@ -30,3 +30,18 @@
 .productImage{
     width: 150px;
 }
+.categoriesRow{
+    max-width: 90%;
+    margin-left: 50px;
+    display: grid;
+    grid-template-columns: repeat(1, 5fr);
+}
+.categoryItem{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #546e1f;
+    background-color: #cccccc46;
+    width: 100%;
+}

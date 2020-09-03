@@ -59,9 +59,8 @@
         <div class="sideLinkContainer">
             <a href="index.php" class="sideNavLink simpleLink"><i class="fas fa-home"></i> &nbsp;Home</a><br><br>
             <a href="index.php?products" class="sideNavLink simpleLink"><i class="fas fa-th"></i> &nbsp;Products</a><br><br>
-            <a href="" class="sideNavLink simpleLink"><i class="fas fa-list-alt"></i> &nbsp;Categories</a><br><br>
-            <a href="" class="sideNavLink simpleLink"><i class="fas fa-search"></i> &nbsp;Product Finder</a><br><br>
-            <a href="" class="sideNavLink simpleLink"><i class="fas fa-list-ol"></i> &nbsp;Orders</a><br><br>
+            <a href="index.php?categories" class="sideNavLink simpleLink"><i class="fas fa-list-alt"></i> &nbsp;Categories</a><br><br>
+            <a href="index.php?orders" class="sideNavLink simpleLink"><i class="fas fa-list-ol"></i> &nbsp;Orders</a><br><br>
             <a href="" class="sideNavLink simpleLink"><i class="fas fa-envelope-open-text"></i> &nbsp;Newsletter</a><br><br>
             <a href="" class="sideNavLink simpleLink"><i class="fab fa-paypal"></i> &nbsp;Paypal Order Finder</a><br><br>
             <a href="" class="sideNavLink simpleLink"><i class="fas fa-signal"></i> &nbsp;Stats</a><br><br>
@@ -95,7 +94,14 @@
 
             <h2>Welcome to your dashboard <?php echo "$admin_user"; ?></h2>
             <hr>
-            
+            <div style="margin-bottom: 40px;">
+                    <label for="productSearch">Search Products: </label>
+                    <h6>(You can use the product id, product name, or anything related to the product to find it)</h6>
+                    <form action="productIDSearch.php" method="get" style="display: flex; justify-content: space-between;">
+                        <input type="text" placeholder="Enter ID: " name="results" id="productSearch" class="input" style="width: 80%; margin-right: 10px;">
+                        <button name="IdSearch" class="btn btn-md" type="submit" style="width: 20%;">Enter</button>
+                    </form>
+                </div>
             <?php
 
             global $con;
@@ -104,7 +110,7 @@
 
                 $search_query = $_GET['results'];
 
-                $get_q = "SELECT * from products where PRODUCT_ID='$search_query'";
+                $get_q = "SELECT * from products where (PRODUCT_ID='$search_query') || (PRODUCT_NAME='$search_query') || (PRODUCT_KEYWORDS='$search_query')";
 
                 $run_pro = mysqli_query($con, $get_q);
 
@@ -119,20 +125,34 @@
                     $pro_var3 = $row_pro['PRODUCT_VARIETY3'];
                     $pro_image = $row_pro['PRODUCT_IMG'];
 
+                    $amnt_sold = $row_pro["AMOUNT_SOLD"];
+
+                                if(!$amnt_sold || $amnt_sold < 1){
+                                    $amnt_sold = 0;
+                                }
+
                     echo "
                     <div style='border: 1px solid #607f24;max-width:300px;'>
                     <h5 class='product_title'>ID: $pro_id</h5>
                     <img src='../../../$pro_image' class='product_img' width='200px'>
                     <h4 class='product_title'>$pro_name</h4>
                     <h5 class='price_title'>$$pro_price</h5><hr>
+                    <h5 class='price'>Amount Sold: $amnt_sold</h5><hr>
                     <h5 class='price_title'>$pro_var</h5><hr>
                     <h5 class='price_title'>$pro_var2</h5><hr>
                     <h5 class='price_title'>$pro_var3</h5>
+                    <div style='display: flex; justify-content: space-around;'>
+                    <a href='index.php?edit_pro=$pro_id' class='edit createBtn'><i class='far fa-edit'></i></a>
+                    <a href='./includes/deleteProducts.php?delete_pro=$pro_id' class='delete createBtn' onclick='return  confirm('Are you sure you want to delete this order? Y/N')'><i class='fas fa-trash-alt'></i></a>
+                    </div>
                     </div>
                     ";
 
 
                         }
+                if(!$row_pro=mysqli_fetch_array($run_pro)){
+                    echo "No Products Found!";
+                }
                     
                     
                     }

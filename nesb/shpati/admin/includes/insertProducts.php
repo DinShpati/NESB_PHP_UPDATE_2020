@@ -1,31 +1,11 @@
-<?php
-
-session_start();
-
+<?php 
 if(!isset($_SESSION['username'])){
 	
-	echo "<script>window.open('../login.php?not_admin=You are not an Admin!','_self')</script>";
+	echo "<script>window.open('login.php?not_admin=You are not an Admin!','_self')</script>";
 }
-else{
+else {
 
-
-include("db.php");
-
-global $con;
-
-?>
-
-<html>
-    <head>
-        <title>Create a Product</title>
-        <link rel="stylesheet" href="editAndInsert.css">
-        <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Damion|Happy+Monkey|Pacifico" rel="stylesheet">
-        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-        <script>tinymce.init({selector:'textarea'});</script>
-    </head>
-    <body>
-    
+?>  
 
     <form action="" method="post" enctype="multipart/form-data" class="insertEditForm">
     <h1>Create a Product</h1>
@@ -83,7 +63,7 @@ global $con;
         <input type="text" name="pro_variety" placeholder="Enter varieties">
         <br>
 
-        <h3>Does this product have a second groupd of varieties? For example a second dropdown menu?</h3>
+        <h3>Does this product have a second group of varieties? For example a second dropdown menu?</h3>
         <label for="pro_var_bool">No</label>
         <input type="radio" name="pro_var_bool2" value="0" class="enjoy-css">
         <label for="pro_featured">Yes</label>
@@ -111,8 +91,6 @@ global $con;
         <button type="submit" name="insert_product">Submit</button>
 
         </form>
-    </body>
-</html>
 
 <?php
 
@@ -140,10 +118,9 @@ if(isset($_POST['insert_product'])){
 
     if($insert_pro){
         echo "<script>alert('The Product Has Been Inserted')</script>";
-        echo "<script>window.open('../index.php?products', '_self');</script>";
+        echo "<script>window.open('./index.php?products', '_self');</script>";
     }
 
 }
-
-} 
+}
  ?>

@@ -3,7 +3,10 @@
 include 'header.php';
 include 'footer.php';
 include 'functions/functions.php';
-add_cart();
+global $con;
+
+// Cart Session starts here
+include 'functions/cartSessions.php';
 ?>
 <!doctype html>
 <html>
@@ -25,11 +28,7 @@ add_cart();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- PayPal BEGIN -->
-      <script>
-          ;(function(a,t,o,m,s){a[m]=a[m]||[];a[m].push({t:new Date().getTime(),event:'snippetRun'});var f=t.getElementsByTagName(o)[0],e=t.createElement(o),d=m!=='paypalDDL'?'&m='+m:'';e.async=!0;e.src='https://www.paypal.com/tagmanager/pptm.js?id='+s+d;f.parentNode.insertBefore(e,f);})(window,document,'script','paypalDDL','d31f7794-cf90-4f46-b1f6-2b3aebbbb37a');
-        </script>
-      <!-- PayPal END -->
+
       <style>
           .bg-mb-rp{
             background:url(img/bg.jpg) no-repeat center fixed;

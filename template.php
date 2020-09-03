@@ -2,7 +2,10 @@
 
 include 'header.php';
 include 'footer.php';
+global $con;
 
+// Cart Session starts here
+include 'functions/cartSessions.php';
 ?>
 <!doctype html>
 <html>

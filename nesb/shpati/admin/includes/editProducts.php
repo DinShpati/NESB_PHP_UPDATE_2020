@@ -1,17 +1,11 @@
 <?php
 
-session_start();
-
 if(!isset($_SESSION['username'])){
 	
-	echo "<script>window.open('../login.php?not_admin=You are not an Admin!','_self')</script>";
+	echo "<script>window.open('login.php?not_admin=You are not an Admin!','_self')</script>";
 }
 else {
 
-
-include("db.php");
-
-global $con;
 
 if(isset($_GET['edit_pro'])){
 
@@ -56,17 +50,6 @@ if(isset($_GET['edit_pro'])){
 
 ?>
 
-
-<html>
-    <head>
-        <title>Edit Product</title>
-        <link rel="stylesheet" href="editAndInsert.css">
-        <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Damion|Happy+Monkey|Pacifico" rel="stylesheet">
-        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-        <script>tinymce.init({selector:'textarea'});</script>
-    </head>
-    <body>
 
         <form action="" method="post" enctype="multipart/form-data" class="insertEditForm">
         <h1>Edit Product</h1>
@@ -133,9 +116,6 @@ if(isset($_GET['edit_pro'])){
 
         </form>
 
-    </body>
-</html>
-
 <?php
 
 	if(isset($_POST['update_product'])){
@@ -193,7 +173,7 @@ if(isset($_GET['edit_pro'])){
         }
 
 	
-		 $update_product = "UPDATE products set PRODUCT_PP='$product_pp',PRODUCT_VARIETY='$product_var',PRODUCT_VARIETY2='$product_var2',PRODUCT_VARIETY3='$product_var3',PRODUCT_CAT='$product_cat',PRODUCT_NAME='$product_name',PRODUCT_PRICE='$product_price',PRODUCT_DESC='$product_desc',PRODUCT_IMG='product_images/$product_image', PRODUCT_KEYWORDS='$product_keywords' where PRODUCT_ID='$update_id'";
+		 $update_product = "UPDATE products set PRODUCT_PP='$product_pp',PRODUCT_VARIETY='$product_var',PRODUCT_VARIETY2='$product_var2',PRODUCT_VARIETY3='$product_var3',PRODUCT_CAT='$product_cat',PRODUCT_NAME='$product_name',PRODUCT_PRICE='$product_price',PRODUCT_DESC='$product_desc',PRODUCT_IMG='img/$product_image', PRODUCT_KEYWORDS='$product_keywords' where PRODUCT_ID='$update_id'";
 		 
 		 $run_product = mysqli_query($con, $update_product);
 		 
@@ -201,16 +181,9 @@ if(isset($_GET['edit_pro'])){
 		 
 		 echo "<script>alert('Product has been updated!')</script>";
 		 
-		 echo "<script>window.open('../index.php?products','_self')</script>";
+		 echo "<script>window.open('./index.php?products','_self')</script>";
 		 
 		 }
     }
-    
-
-
-
-
-
-
 }
 ?>

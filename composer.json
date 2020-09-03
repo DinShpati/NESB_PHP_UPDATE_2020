@@ -1,0 +1,7 @@
+{
+    "require": {
+        "utrust/utrust": "^1.0",
+        "vlucas/valitron": "^1.4",
+        "vlucas/phpdotenv": "^5.1"
+    }
+}

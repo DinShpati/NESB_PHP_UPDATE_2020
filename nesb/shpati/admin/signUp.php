@@ -1,7 +1,3 @@
-<?php
-    include("includes/db.php");
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,32 +36,32 @@
 </body>
 </html>
 <?php
-// include("includes/db.php"); 
+//  include("includes/db.php"); 
 	
-// 	if(isset($_POST['login'])){
+//  	if(isset($_POST['login'])){
 	
-// 		$email = mysqli_real_escape_string($con, $_POST['email']);
-//         $pass = mysqli_real_escape_string($con, $_POST['password']);
-//         $hash = password_hash($pass, PASSWORD_DEFAULT);
+//  		$email = mysqli_real_escape_string($con, $_POST['email']);
+//          $pass = mysqli_real_escape_string($con, $_POST['password']);
+//          $hash = password_hash($pass, PASSWORD_DEFAULT);
 	
-// 	$sel_user = "INSERT INTO admin (ADMIN_EMAIL, ADMIN_PASS) values ('$email','$hash')";
+//  	$sel_user = "INSERT INTO admin (ADMIN_USERNAME, ADMIN_EMAIL, ADMIN_PASS, ADMIN_IMG) VALUES ('Afrim Spataj', '$email','$hash', 'shea.png')";
 	
-//     $run_user = mysqli_query($con, $sel_user); 
+//      $run_user = mysqli_query($con, $sel_user) or die("error 234"); 
     
-// 	$check_user = mysqli_num_rows($run_user); 
+//  	$check_user = mysqli_num_rows($run_user); 
 	
-// 	if($check_user == 1){
+//  	if($check_user == 1){
 	
 	
-// 	echo "<script>alert('HAHA DUDE IT WORLED!!!!!!!!!')</script>";
+//  	echo "<script>alert('HAHA DUDE IT WORLED!!!!!!!!!')</script>";
 	
 // 	}
-// 	else {
+//  	else {
 	
 // 	echo "<script>alert('Password or Email is wrong, try again!')</script>";
 	
-// 	}
+//  	}
 	
 	
-//     }
+//      }
     ?>

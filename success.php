@@ -4,13 +4,41 @@ include 'header.php';
 include 'footer.php';
 include 'functions/functions.php';
 
-    $ip_add = getUserIpAddr();
+global $con;
 
-    $selected_cart = "SELECT * FROM temp_email WHERE ORDER_IP='$ip_add'";
-    $run_select_all_cart = mysqli_query($con, $selected_cart);
-    $count_selected_rows_cart = mysqli_num_rows($run_select_all_cart);
+    session_start();
 
-    if($count_selected_rows_cart <= 0){
+    if(empty($_SESSION['shopping_cart'])){
+        echo "<script>window.open('./', '_self');</script>";
+    }
+    else if(isset($_SESSION['finish']) && !empty($_SESSION['shopping_cart']) && !empty($_SESSION['contact'])){
+        
+        $total = 0;
+        $sales_tax = 0.0635;
+
+        if(!empty($_SESSION['shopping_cart'])){
+
+            foreach($_SESSION['shopping_cart'] as $key => $product): 
+
+                $prod_id = $product['id'];
+                $sub_total = $product['quantity'] * implode(" ", $product['price']);
+                $total += $sub_total;
+
+            endforeach;
+        }
+
+        $actual_total = number_format(($total * $sales_tax) + $total, 2);
+        $date = date('m/d/Y h:i:s a');
+        $email = $_SESSION['contact']['email'];
+        $order_sum = json_encode($_SESSION['shopping_cart']);
+
+        $add_order = "INSERT INTO orders (ORDER_AMOUNT, ORDER_COMPLETE, ORDER_DATE, ORDER_TOTAL, ORDER_INFO, ORDER_EMAIL) values ('$total', '0', '$date', '$actual_total', '$order_sum', '$email')";
+        $run_order = mysqli_query($con, $add_order);
+
+        session_destroy();
+
+
+    }else{
         echo "<script>window.open('./', '_self');</script>";
     }
 
@@ -35,11 +63,6 @@ include 'functions/functions.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- PayPal BEGIN -->
-      <script>
-          ;(function(a,t,o,m,s){a[m]=a[m]||[];a[m].push({t:new Date().getTime(),event:'snippetRun'});var f=t.getElementsByTagName(o)[0],e=t.createElement(o),d=m!=='paypalDDL'?'&m='+m:'';e.async=!0;e.src='https://www.paypal.com/tagmanager/pptm.js?id='+s+d;f.parentNode.insertBefore(e,f);})(window,document,'script','paypalDDL','d31f7794-cf90-4f46-b1f6-2b3aebbbb37a');
-        </script>
-      <!-- PayPal END -->
       <style>
           .bg-mb-rp{
             background:url(img/bg.jpg) no-repeat center fixed;
@@ -134,95 +157,7 @@ include 'functions/functions.php';
            
            </div>
 
-           <?php
-
-                global $con;
-                global $order_summary;
-                global $email;
-
-                $ip_add = getUserIpAddr();
-                $select_cart = "SELECT * FROM cart WHERE IP_ADD='$ip_add'";
-                $run_cart = mysqli_query($con, $select_cart);
-
-                $total = 0;
-
-                $order_amount = 0;
-
-                $sales_tax = 0;
-
-                while($row_cart = mysqli_fetch_array($run_cart)){
-
-                    $pro_id = $row_cart['P_ID'];
-                    $pro_qty = $row_cart['QTY'];
-                    $pro_var = $row_cart['VARIETY'];
-
-                    $get_products = "SELECT * from products where PRODUCT_ID='$pro_id'";
-
-                    $run_products = mysqli_query($con, $get_products);
-
-                    while($row_products=mysqli_fetch_array($run_products)){
-
-                        $product_name = $row_products['PRODUCT_NAME'];
-                        $only_price = $row_products['PRODUCT_PRICE'];
-                        $sub_total = $row_products['PRODUCT_PRICE']*$pro_qty;
-
-                        $sales_tax = 0.0635;
-
-                        $total += $sub_total;
-
-                        $order_summary .= "`" . $product_name . $pro_var . " ~pcs: " . $pro_qty;
-                    }
-                }
-                //double checking for orders
-                $selected_cart = "SELECT * FROM temp_email WHERE ORDER_IP='$ip_add'";
-                $run_select_all_cart = mysqli_query($con, $selected_cart);
-                $count_selected_rows_cart = mysqli_num_rows($run_select_all_cart);
-
-            if($count_selected_rows_cart <= 0){
-                echo "<script>window.open('./', '_self');</script>";
-            }else{
-                //Inserting data into our customer_orders table
-
-                date_default_timezone_set('America/New_York');
-                $order_date = date('m/d/Y h:i:s a', time());
-
-                $select_email = "SELECT ORDER_EMAIL FROM temp_email WHERE ORDER_IP='$ip_add' LIMIT 1";
-                $run_email = mysqli_query($con, $select_email);
                 
-                while($order_email = mysqli_fetch_array($run_email)){
-                    $email = $order_email['ORDER_EMAIL'];
-                }
-
-
-                $order_total =  number_format(($total * $sales_tax) + $total, 2);
-
-                
-                    $insert_email = "INSERT INTO orders (ORDER_EMAIL, ORDER_AMOUNT, ORDER_DATE, ORDER_TOTAL, ORDER_INFO) values ('$email', '$order_total', '$order_date', '$total', '$order_summary')";
-                    $run_query = mysqli_query($con, $insert_email);
-                
-
-                //Deleting the items in the cart after purchase
-
-                $selected_cart = "SELECT * FROM cart WHERE IP_ADD='$ip_add'";
-                $run_select_all_cart = mysqli_query($con, $selected_cart);
-                $count_selected_rows_cart = mysqli_num_rows($run_select_all_cart);
-
-                if($count_selected_rows_cart){
-                    $delete_cart = "DELETE FROM cart WHERE IP_ADD='$ip_add'";
-                    $run_cart = mysqli_query($con, $delete_cart);
-                }
-
-                //delete email
-                $selected_email = "SELECT * FROM temp_email WHERE ORDER_IP='$ip_add'";
-                $run_select_all_email = mysqli_query($con, $selected_email);
-                $count_selected_rows_email = mysqli_num_rows($run_select_all_email);
-
-                if($count_selected_rows_email){
-                    $delete_email = "DELETE FROM temp_email WHERE ORDER_IP='$ip_add'";
-                    $run_email = mysqli_query($con, $delete_email);
-                }
-            }
-            ?>
            
            <!-- footer-->
            <?php mainFooter();?>

@@ -1,4 +1,13 @@
 <?php
+require_once './vendor/autoload.php';
+
+use Utrust\ApiClient;
+use Utrust\Validator;
+use Utrust\Store\Customer;
+use Utrust\Store\Order;
+use function PHPSTORM_META\map;
+
+$api_key = getenv('UTRUST_API_SANDBOX');
 
 include 'header.php';
 include 'footer.php';
@@ -8,9 +17,224 @@ global $con;
 global $email;
 global $order_summary;
 
-$userIp = getUserIpAddr();
-remove_cart();
-updateQTY();
+session_start();
+
+if(empty($_SESSION['shopping_cart'])){
+    echo "
+    <div class='heading'>
+        <h2 class='comfortaa'><span style='color: rgb(144, 161, 40);font-size: 24px;'>Your Cart is Empty</span></h2>
+    </div>";
+}
+if(!isset($_SESSION['finish'])){
+    $_SESSION['finish'] = true;
+}
+
+    $total = 0;
+    $order_summary = "";
+    $sales_tax = 0.0635;
+    $params = array(
+        'business' => 'nesb.sales@gmail.com',
+        'cmd' => '_cart',
+        'upload' => '1',
+        'currency_code' => 'USD',
+        'return' => 'success.php',
+        'cancel_return' => 'cf.php',
+    );
+    $lineItems = [];
+
+   if(!empty($_SESSION['shopping_cart'])){
+
+        foreach($_SESSION['shopping_cart'] as $key => $product): 
+
+            $pro_var_arr = explode("~", $product['variation']);
+            $prod_var = count($pro_var_arr);
+
+            echo "<script>console.log('$prod_var');</script>";
+
+            $prod_id = $product['id'];
+            $prod_num = $key + 1;
+            $prod_price = array_values($product['price'])[0];
+            $sub_total = $product['quantity'] * implode(" ", $product['price']);
+
+            if(count($pro_var_arr) <= 1){
+                $arrayBefore = $params;
+                $lineBefore = $lineItems;
+                $productArray = array(
+                    'item_name_' . $prod_num => $product['name'],
+                    'item_number_' . $prod_num => $prod_id, 
+                    'quantity_' . $prod_num => $product['quantity'],
+                    'on0_' . $prod_num => $pro_var_arr[0],
+                    'amount_' . $prod_num => $prod_price
+                );
+                $lineAfter = [
+                    'sku' => $prod_num . ' ' . $pro_var_arr[0],
+                    'name' => $product['name'],
+                    'price' => $prod_price,
+                    'currency' => 'USD',
+                    'quantity' => $product['quantity']
+                ];
+            }else if(count($pro_var_arr) == 2){
+                $arrayBefore = $params;
+                $lineBefore = $lineItems;
+                $productArray = array(
+                    'item_name_' . $prod_num => $product['name'],
+                    'item_number_' . $prod_num => $prod_id, 
+                    'quantity_' . $prod_num => $product['quantity'],
+                    'on0_' . $prod_num => $pro_var_arr[0],
+                    'on1_' . $prod_num => $pro_var_arr[1],
+                    'amount_' . $prod_num => $prod_price
+                );
+                $lineAfter = [
+                    'sku' => $prod_num . ' ' . $pro_var_arr[0] . ' ' . $pro_var_arr[1],
+                    'name' => $product['name'],
+                    'price' => $prod_price,
+                    'currency' => 'USD',
+                    'quantity' => $product['quantity']
+                ];
+            }else if(count($pro_var_arr) == 3){
+                $arrayBefore = $params;
+                $lineBefore = $lineItems;
+                $productArray = array(
+                    'item_name_' . $prod_num => $product['name'],
+                    'item_number_' . $prod_num => $prod_id, 
+                    'quantity_' . $prod_num => $product['quantity'],
+                    'on0_' . $prod_num => $pro_var_arr[0],
+                    'on1_' . $prod_num => $pro_var_arr[1],
+                    'on2_' . $prod_num => $pro_var_arr[2],
+                    'amount_' . $prod_num => $prod_price
+                );
+                $lineAfter = [
+                    'sku' => $prod_num . ' ' . $pro_var_arr[0] . ' ' . $pro_var_arr[1] . ' ' . $pro_var_arr[2],
+                    'name' => $product['name'],
+                    'price' => $prod_price,
+                    'currency' => 'USD',
+                    'quantity' => $product['quantity']
+                ];
+            }else{
+                $arrayBefore = $params;
+                $lineBefore = $lineItems;
+                $productArray = array(
+                    'item_name_' . $prod_num => $product['name'],
+                    'item_number_' . $prod_num => $prod_id, 
+                    'quantity_' . $prod_num => $product['quantity'],
+                    'on0_' . $prod_num => $pro_var_arr,
+                    'amount_' . $prod_num => $prod_price
+                );
+                $lineAfter = [
+                    'sku' => $prod_num . ' ' . (string) $pro_var_arr,
+                    'name' => $product['name'],
+                    'price' => $prod_price,
+                    'currency' => 'USD',
+                    'quantity' => $product['quantity']
+                ];
+            }
+
+            array_push($lineItems, $lineAfter);
+            $params = array_merge($arrayBefore, $productArray);
+
+        endforeach;
+    }
+
+
+if (isset($_POST['submit'])) {
+    //print_r($params);
+    header('Location: https://www.paypal.com/cgi-bin/webscr?'.http_build_query($params));
+
+    exit();
+}
+if (isset($_POST['utrust'])) {
+
+    $totalUTrust = 0;
+    $sales_tax = 0.0635;
+    $shipping = 0;
+
+    if(!empty($_SESSION['shopping_cart'])){
+
+        foreach($_SESSION['shopping_cart'] as $key => $product): 
+
+            $prod_id = $product['id'];
+            $sub_total = $product['quantity'] * implode(" ", $product['price']);
+            $totalUTrust += $sub_total;
+        endforeach;
+
+        if(($total*$sales_tax)+$total <= 10){
+            $shipping = 3.99;
+        }else if(($total*$sales_tax)+$total <= 30){
+            $shipping = 7.99;
+        }else if(($total*$sales_tax)+$total <= 100){
+            $shipping = 9.99;
+        }else{
+            $shipping = 19.99;
+        }
+    }
+
+    $firstName = (string) $_POST['first_name'];
+    $lastName = (string) $_POST['last_name'];
+    $emailAdd = (string) $_SESSION['contact']['email'];
+    $address = (string)$_POST['address'];
+    $city = (string)$_POST['city'];
+    $state = (string)$_POST['state'];
+    $postcode = (string)$_POST['postcode'];
+    $country = (string)$_POST['country'];
+
+
+    $totalUTrust = number_format(($totalUTrust * $sales_tax) + $totalUTrust + $shipping, 2);
+
+    $api_key = "u_test_api_68b9d5fb-6218-45a0-8641-c25acdf21764";
+
+    // Init Utrust API
+    $utrustApi = new ApiClient($api_key, 'sandbox');
+
+    echo '<pre>'; print_r($lineItems); echo '</pre>';
+
+
+    $orderData = [
+        'reference' => 'REF-12345678',
+        'amount' => [
+            'total' => $totalUTrust,
+            'currency' => 'USD',
+        ],
+        'return_urls' => [
+            'return_url' => 'http://example.com/order_success',
+            'cancel_url' => 'http://example.com/order_canceled',
+            'callback_url' => 'http://example.com/webhook_url',
+        ],
+        'line_items' => $lineItems,
+    ];
+    
+    // Build Customer data array
+    $customerData = [
+        'first_name' => $firstName,
+        'last_name' => $lastName,
+        'email' => $emailAdd,
+        'address1' => $address,
+        'city' => $city,
+        'state' => $state,
+        'postcode' => $postcode,
+        'country' => $country,
+
+    ];
+
+    try {
+        // Validate data
+        $orderIsValid = Validator::order($orderData);
+        $customerIsValid = Validator::customer($customerData);
+    
+        // Make the API request
+        if ($orderIsValid && $customerIsValid) {
+            $response = $utrustApi->createOrder($orderData, $customerData);
+        }
+    
+        // Use the $redirect_url to redirect the customer to our Payment Widget
+        echo $response->attributes->redirect_url;
+       header('Location: ' . $response->attributes->redirect_url);
+    } catch (Exception $e) {
+        // Handle error (e.g.: show message to the customer)
+        echo 'Something went wrong: ' . $e->getMessage();
+    }
+
+    exit();
+}
 
 ?>
 <!doctype html>
@@ -33,11 +257,6 @@ updateQTY();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- PayPal BEGIN -->
-      <script>
-          (function(a,t,o,m,s){a[m]=a[m]||[];a[m].push({t:new Date().getTime(),event:'snippetRun'});var f=t.getElementsByTagName(o)[0],e=t.createElement(o),d=m!=='paypalDDL'?'&m='+m:'';e.async=!0;e.src='https://www.paypal.com/tagmanager/pptm.js?id='+s+d;f.parentNode.insertBefore(e,f);})(window,document,'script','paypalDDL','d31f7794-cf90-4f46-b1f6-2b3aebbbb37a');
-        </script>
-      <!-- PayPal END -->
       <style>
           .bg-mb-rp{
             background:url(img/bg.jpg) no-repeat center fixed;
@@ -70,6 +289,20 @@ updateQTY();
             text-align: center;
         }
         }
+        .paypalBtn{
+            background: #ffffff00;
+            border-radius: 20px;
+            border:none;
+            outline: none;
+        }
+        .paypalBtn:hover{
+            cursor: pointer;
+        }
+        .paypalBtn:focus{
+            border: none;
+            outline: none;
+        }
+        
       </style>
 </head>
 <body lang="en">
@@ -90,54 +323,46 @@ updateQTY();
 
                 <?php
 
-                    $get_pro = "SELECT * FROM cart WHERE IP_ADD='$userIp'";
-                    $runQuery = mysqli_query($con, $get_pro);
-                    $count = mysqli_num_rows($runQuery);
+                    if(empty($_SESSION['shopping_cart'])){
+                        echo "
+                        <div class='heading'>
+                            <h2 class='comfortaa'><span style='color: rgb(144, 161, 40);font-size: 24px;'>Your Cart is Empty</span></h2>
+                        </div>";
+                        }
 
-                    if($count <= 0){
-                    echo "
-                    <div class='heading'>
-                        <h2 class='comfortaa'><span style='color: rgb(144, 161, 40);font-size: 24px;'>Your Cart is Empty</span></h2>
-                    </div>";
-                    }
-
-                    $total = 0;
-                    $order_summary = "";
-
-                    while($row_cart = mysqli_fetch_array($runQuery)){
-
-                        $pro_id = $row_cart['P_ID'];
-                        $item_id = $row_cart['CART_ID'];
-                        $pro_qty = $row_cart['QTY'];
-                        $pro_var = $row_cart['VARIETY'];
-
-
-                        $get_products = "SELECT * from products where PRODUCT_ID='$pro_id'";
-                        $run_products = mysqli_query($con, $get_products);
-
-                        while($row_products=mysqli_fetch_array($run_products)){
-
-                        $product_title = $row_products['PRODUCT_NAME'];
-                        $product_img = $row_products['PRODUCT_IMG'];
-                        $only_price = $row_products['PRODUCT_PRICE'];
-                        $sub_total = $row_products['PRODUCT_PRICE']*$pro_qty;
-
+                        $total = 0;
+                        $order_summary = "";
                         $sales_tax = 0.0635;
+                        $shipping = 0;
 
-                        $total += $sub_total;
+                    if(!empty($_SESSION['shopping_cart'])){
 
-                        $order_summary .= "`" . $product_title . $pro_var . " ~pcs: " . $pro_qty;
+                            foreach($_SESSION['shopping_cart'] as $key => $product): 
 
+                                $prod_id = $product['id'];
+                                $sub_total = $product['quantity'] * implode(" ", $product['price']);
+                                $total += $sub_total;
+                            endforeach;
+
+                            if(($total*$sales_tax)+$total <= 10){
+                                $shipping = 3.99;
+                            }else if(($total*$sales_tax)+$total <= 30){
+                                $shipping = 7.99;
+                            }else if(($total*$sales_tax)+$total <= 100){
+                                $shipping = 9.99;
+                            }else{
+                                $shipping = 19.99;
+                            }
                     }
-                    }
-
                     ?>
                     <ul class="summary">
                         <li class="totalRow"><h6><b>Subtotal: </b>$<?php echo number_format($total, 2); ?></h6></li>
                         <?php if($total > 0){ ?>
                         <li class="totalRow"><h6><b>Tax: </b>$<?php echo number_format($total * $sales_tax, 2); ?></h6></li>
-                        <li class="totalRow final"><h4>Total: $<?php echo number_format(($total * $sales_tax) + $total, 2); ?></h4></li>
-                        <li class="totalRow" style="color:white;font-size: 13px;">Continue to checkout to view shipping price</li>
+                        <li class="totalRow"><h6><b>*Shipping: </b>$<?php echo number_format($shipping, 2); ?></h6></li>
+                        <li class="totalRow final"><h4>Total: $<?php echo number_format(($total * $sales_tax) + $total + $shipping, 2); ?></h4></li>
+                        <li class="totalRow" style="color:white;font-size: 13px;">*Shipping may change after providing your address</li>
+                        <li class="totalRow" style="color:white;font-size: 13px;">*Note these shipping prices do not apply to international shipments, please <a href="/ContactUs.php">contact us</a> for more details on international shipping</li>
                         <?php }else{  ?>
                         <li class="totalRow final"><span class="label">Total</span><span class="value">$<?php echo $total; ?></span></li>
                         <?php }?>
@@ -146,11 +371,13 @@ updateQTY();
                 </div>
                 <br>
                 <div class="heading cf" id="hidOnCheckout">
-                  <h2 class="comfortaa"><span style="color: rgb(144, 161, 40);font-size: 24px;">Contact Information</span></h2>
+                  <h2 class="comfortaa" id="contactInfo"><span style="color: rgb(144, 161, 40);font-size: 24px;">Contact Information</span></h2>
+                  <h2 class="comfortaa" id="PaymentInfo" style="display: none;"><span style="color: rgb(144, 161, 40);font-size: 24px;">Choose a Payment Option: </span></h2>
                 </div>
+
                 <div class="cart">
                     <form action="checkout.php" method="post">
-                        <input type="email" name="contactEmail" id="vontactEmail" class="textInpt" placeholder="Enter Your Email" required>
+                        <input type="email" name="contactEmail" id="contactEmail" class="textInpt" placeholder="Enter Your Email" required>
                         <button type="submited" name="submitEmail" id="sbmitEmail" class="btn con">Continue to Checkout</button>
                     </form>
                     <?php
@@ -158,13 +385,21 @@ updateQTY();
 
                         $ip_add = getUserIpAddr();
 
-                        if(isset($_POST['contactEmail'])){
+                        if(isset($_POST['submitEmail'])){
                             
                             $email = $_POST['contactEmail'];
 
-                            echo "<script>document.getElementById('test').style.visibility = 'hidden';</script>";
-                            include("payments.php");
+                            if(!isset($_SESSION['contact'])){
+                                    $_SESSION['contact'] = array(
+                                        'email' => $email
+                                    );
+                            }
 
+                            echo "<script>document.getElementById('contactEmail').style.display = 'none';</script>";
+                            echo "<script>document.getElementById('contactInfo').style.display = 'none';</script>";
+                            echo "<script>document.getElementById('PaymentInfo').style.display = 'block';</script>";
+                            
+                            include("payments.php");
                         }
                     ?>
                 </div>

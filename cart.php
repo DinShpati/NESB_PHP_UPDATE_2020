@@ -4,9 +4,41 @@ include 'header.php';
 include 'footer.php';
 include 'functions/functions.php';
 
-$userIp = getUserIpAddr();
-remove_cart();
-updateQTY();
+global $con;
+global $email;
+global $order_summary;
+
+session_start();
+
+    //updating QTY
+    if(isset($_SESSION['shopping_cart'])){
+        if(isset($_POST['add_qty'])){
+                for($i = 0; $i < count($_SESSION['shopping_cart']); $i++){
+                    if($_SESSION['shopping_cart'][$i]['id'] == filter_input(INPUT_GET, 'id') && $_SESSION['shopping_cart'][$i]['variation'] == filter_input(INPUT_POST, 'variety')){
+                        if(filter_input(INPUT_POST, 'qty') > 0){
+                            $_SESSION['shopping_cart'][$i]['quantity'] = filter_input(INPUT_POST, 'qty');
+                        }else{
+                            $_SESSION['shopping_cart'][$i]['quantity'] = 1;
+                        }
+                }
+            }
+        }
+    }
+
+    //REmoving product from product
+    if(isset($_SESSION['shopping_cart'])){
+        if(filter_input(INPUT_GET, 'action') == 'delete'){
+                foreach($_SESSION['shopping_cart'] as $key =>  $product){
+                    if($product['id'] == filter_input(INPUT_GET, 'id') && $_SESSION['shopping_cart'][$key]['variation'] == filter_input(INPUT_POST, 'var_rem')){
+                            //remove from the shopping card after meeting the criteria
+                            unset($_SESSION['shopping_cart'][$key]);
+                }
+            }
+            //reset sesssion array keys so they match the new product ids
+            $_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
+        }
+    }
+
 
 ?>
 <!doctype html>
@@ -29,11 +61,7 @@ updateQTY();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- PayPal BEGIN -->
-      <script>
-          (function(a,t,o,m,s){a[m]=a[m]||[];a[m].push({t:new Date().getTime(),event:'snippetRun'});var f=t.getElementsByTagName(o)[0],e=t.createElement(o),d=m!=='paypalDDL'?'&m='+m:'';e.async=!0;e.src='https://www.paypal.com/tagmanager/pptm.js?id='+s+d;f.parentNode.insertBefore(e,f);})(window,document,'script','paypalDDL','d31f7794-cf90-4f46-b1f6-2b3aebbbb37a');
-        </script>
-      <!-- PayPal END -->
+
       <style>
           .bg-mb-rp{
             background:url(img/bg.jpg) no-repeat center fixed;
@@ -75,105 +103,102 @@ updateQTY();
            
            <!-- content goes here -->
            
-          <div class="row body" id="cartSection">
+          <div class="row body">
             <div class="wrap cf">
-    
+
                 <div class="heading cf">
-                  <h2 class="comfortaa"><span style="color: rgb(144, 161, 40);font-size: 24px;">My Cart</span></h2>
+
+                <h2 class="comfortaa"><span style="color: rgb(144, 161, 40);font-size: 24px;">My Cart</span></h2>
                   <a href="index.php" class="continue">Continue Shopping</a>
                 </div>
                 <div class="cart">
                   <ul class="cartWrap">
-                      
-                    <?php
 
-                      $get_pro = "SELECT * FROM cart WHERE IP_ADD='$userIp'";
-                      $runQuery = mysqli_query($con, $get_pro);
-                      $count = mysqli_num_rows($runQuery);
+                <?php
 
-                      if($count <= 0){
-                        echo "
-                        <div class='heading'>
-                          <h2 class='comfortaa'><span style='color: rgb(144, 161, 40);font-size: 24px;'>Your Cart is Empty</span></h2>
-                        </div>";
-                      }
-
-                      $total = 0;
-
-                      while($row_cart = mysqli_fetch_array($runQuery)){
-
-                          $pro_id = $row_cart['P_ID'];
-                          $item_id = $row_cart['CART_ID'];
-                          $pro_qty = $row_cart['QTY'];
-                          $pro_var = $row_cart['VARIETY'];
-
-
-                          $get_products = "SELECT * from products where PRODUCT_ID='$pro_id'";
-                          $run_products = mysqli_query($con, $get_products);
-
-                          while($row_products=mysqli_fetch_array($run_products)){
-
-                            $product_title = $row_products['PRODUCT_NAME'];
-                            $product_img = $row_products['PRODUCT_IMG'];
-                            $only_price = $row_products['PRODUCT_PRICE'];
-                            $sub_total = $row_products['PRODUCT_PRICE']*$pro_qty;
-
-                            $sales_tax = 0.0635;
-
-                            $total += $sub_total;
-                        ?>
-
-                    <li class="items odd">
-                          <div class="infoWrap"> 
-
-                            <div class="cartSection">
-                                
-                              <img src="<?php echo $product_img; ?>" alt="" class="itemImg" />
-                              <h3><?php echo $product_title; ?></h3>
-                              <p class="itemNumber"><?php 
-                              
-                              $pro_var_arr = explode("~", $pro_var); 
-                              
-                              for($i = 0; $i < count($pro_var_arr); $i++){
-                                echo $pro_var_arr[$i] . "<br>";
-                              } ?></p>
-                              <br>
-                              <p> 
-                              <form action="cart.php?add_qty=<?php echo $pro_id; ?>" method="post">
-                                <input type="text" name="qty" class="qty" placeholder=" " value="<?php echo $pro_qty; ?>"/> <span style="color:white;">x $<?php echo number_format($only_price, 2); ?></span>
-                                <input type="hidden" name="itemID" value="<?php echo$item_id;?>">
-                                <button type="submit" name="add_qty" class="updateQTY">update</button>
-                              </form>
-                              </p>
-                            
-                              <p class="stockStatus out"></p>
-                            </div>  
-
-                            <div class="prodTotal cartSection">
-                              <p>$<?php echo number_format($sub_total, 2); ?></p>
-                            </div>
-
-                            <div class="cartSection removeWrap">
-                              <form action="cart.php?remove_cart=<?php echo $pro_id; ?>" method="post">
-                                <input type="hidden" name="itemID" value="<?php echo$item_id;?>">
-                                <button type="submit" name="remove_cart" class="remove">X</button>
-                              </form>
-                            </div>
-                          </div>
-                    </li>
-                    <hr>
-
-                    <?php  
-
-                        }
+                    if(empty($_SESSION['shopping_cart'])){
+                    echo "
+                    <div class='heading'>
+                        <h2 class='comfortaa'><span style='color: rgb(144, 161, 40);font-size: 24px;'>Your Cart is Empty</span></h2>
+                    </div>";
                     }
 
-                    ?>
-                    
+                    $total = 0;
+                    $order_summary = "";
+                    $sales_tax = 0.0635;
 
-                  </ul>
+                   if(!empty($_SESSION['shopping_cart'])){
+
+                        foreach($_SESSION['shopping_cart'] as $key => $product): 
+
+                            $prod_id = $product['id'];
+                            $sub_total = $product['quantity'] * implode(" ", $product['price']);
+
+                            $getImage = 'SELECT * FROM products WHERE PRODUCT_ID = ' . $prod_id . ' LIMIT 1';
+                            $iResult = mysqli_query($con, $getImage);
+                            $image;
+                            if (mysqli_num_rows($iResult) > 0) {
+                                // output data of each row
+                                while($row = mysqli_fetch_assoc($iResult)) {
+                                    $image = $row['PRODUCT_IMG'];
+                                }
+                            }
+
+                    ?>
+
+                        <li class="items odd">
+                            <div class="infoWrap"> 
+
+                                <div class="cartSection">
+                                    
+                                <img src="<?php echo $image; ?>" alt="" class="itemImg" />
+                                <h3><?php echo $product['name']; ?></h3>
+                                <p class="itemNumber"><?php 
+                                
+                                $pro_var_arr = explode("~", $product['variation']); 
+                              
+                                for($i = 0; $i < count($pro_var_arr); $i++){
+                                    $optionNum = $i+1;
+                                    echo 'Option ' . $optionNum . ': ' . $pro_var_arr[$i] . "<br>";
+                                } ?>
+                                    </p>
+                                <br>
+                                <p> 
+                                <form action='cart.php?action=update&id=<?php echo $product['id'] ?>' method="post">
+                                    <input type="text" name="qty" class="qty" placeholder=" " value="<?php echo $product['quantity']; ?>"/> <span style="color:white;">x $<?php echo number_format($sub_total, 2); ?></span>
+                                    <input type="hidden" name="itemID" value="<?php echo $product['id'];?>">
+                                    <input type="hidden" name="variety" value="<?php echo $product['variation'];?>">
+                                    <button type="submit" name="add_qty" class="updateQTY">update</button>
+                                </form>
+                                </p>
+                                
+                                <p class="stockStatus out"></p>
+                                </div>  
+
+                                <div class="prodTotal cartSection">
+                                <p>$<?php echo number_format($sub_total, 2); ?></p>
+                                <?php $total += $sub_total ?>
+                                </div>
+
+                                <div class="cartSection removeWrap">
+                                <form action="cart.php?action=delete&id=<?php echo $product['id']; ?>" method="post">
+                                    <input type="hidden" name="itemID" value="<?php echo $product['id']?>">
+                                    <input type="hidden" name="var_rem" value="<?php echo $product['variation'];?>">
+                                    <button type="submit" name="remove_cart" class="remove">X</button>
+                                </form>
+                                </div>
+                            </div>
+                        </li>
+                        <hr>
+
+                        <?php endforeach; ?>
+                        <?php
+
+                        }
+
+                        ?>
+                        </ul>
                 </div>
-                
                 <div class="promoCode">
                   <form action="cart.php" method="POST">
                     <label for="promo">Join Our Email List</label>
@@ -203,7 +228,6 @@ updateQTY();
                     }
                   ?>
                 </div>
-                
                 <div class="subtotal cf">
                   <ul>
                     <li class="totalRow"><span class="label"><b>Subtotal</b></span><span class="value">$<?php echo number_format($total, 2); ?></span></li>
@@ -219,8 +243,9 @@ updateQTY();
                 </div>
               </div>
             </div>
-
+            
            <!-- footer-->
+           
            <?php mainFooter();?>
            
        <!-- end footer-->
@@ -230,6 +255,7 @@ updateQTY();
        
         </div>
     </div>
+    
         
     
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -252,3 +278,4 @@ updateQTY();
     </body>
 
 </html>
+

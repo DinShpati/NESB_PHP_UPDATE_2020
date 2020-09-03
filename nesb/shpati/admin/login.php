@@ -62,7 +62,7 @@ include("includes/db.php");
             if(password_verify($pass, $row["ADMIN_PASS"]))  
             {  
                 //return true;  
-                echo '<script>alert("Sign in babe")</script>';
+                echo '<script>alert("Sign in")</script>';
 
                 $_SESSION['username']=$email;  
                 header("location: index.php");

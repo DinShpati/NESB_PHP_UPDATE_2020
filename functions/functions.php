@@ -58,63 +58,63 @@ function getPro($catID, $size){
             <h3 class='product-header'>$pro_name</h3>
             <p class='product-price'align='center'>$$pro_price &nbsp;&nbsp;<br>$pro_desc</p>";
 
+            //from tuts
+            echo "<form method='post' action='$pageName?action=add&id=$pro_id'>
+                        <input type='hidden' name='name' value='$pro_name'/>";
 
-            echo "<form method='post' action='$pageName?add_cart=$pro_id'>";
+                        if($pro_var_bool){
 
-            if($pro_var_bool){
-
-                echo "<select name='var_opt' class='productDropdown' required>";
-    
-                $parts = explode(', ', $pro_var);
+                            echo "<select name='var_opt' class='productDropdown' required>";
+                
+                            $parts = explode(', ', $pro_var);
+                        
+                            $counter = 0;
+                        
+                            while($counter < count($parts) ){
+                                                        
+                                echo "<option value='$parts[$counter]'>$parts[$counter]</option>";
+                                    ++$counter;
+                                }
+                            echo"</select>";
             
-                $counter = 0;
+                            if($pro_var_bool2){
             
-                while($counter < count($parts) ){
-                                            
-                    echo "<option value='$parts[$counter]'>$parts[$counter]</option>";
-                        ++$counter;
-                    }
-                echo"</select>";
-
-                if($pro_var_bool2){
-
-                    echo "<br><select name='var_opt2' class='productDropdown' required>";
-        
-                    $parts = explode(', ', $pro_var2);
+                                echo "<br><select name='var_opt2' class='productDropdown' required>";
+                    
+                                $parts = explode(', ', $pro_var2);
+                            
+                                $counter = 0;
+                            
+                                while($counter < count($parts) ){
+                                                            
+                                    echo "<option value='$parts[$counter]'>$parts[$counter]</option>";
+                                        ++$counter;
+                                    }
+                                echo"</select>";
+                    
+                            }
+                            if($pro_var_bool3){
+            
+                                echo "<br><select name='var_opt3' class='productDropdown' required>";
+                    
+                                $parts = explode(', ', $pro_var3);
+                            
+                                $counter = 0;
+                            
+                                while($counter < count($parts) ){
+                                                            
+                                    echo "<option value='$parts[$counter]'>$parts[$counter]</option>";
+                                        ++$counter;
+                                    }
+                                echo"</select><br>";
+                    
+                            }
                 
-                    $counter = 0;
-                
-                    while($counter < count($parts) ){
-                                                
-                        echo "<option value='$parts[$counter]'>$parts[$counter]</option>";
-                            ++$counter;
                         }
-                    echo"</select>";
-        
-                }
-                if($pro_var_bool3){
 
-                    echo "<br><select name='var_opt3' class='productDropdown' required>";
-        
-                    $parts = explode(', ', $pro_var3);
-                
-                    $counter = 0;
-                
-                    while($counter < count($parts) ){
-                                                
-                        echo "<option value='$parts[$counter]'>$parts[$counter]</option>";
-                            ++$counter;
-                        }
-                    echo"</select><br>";
-        
-                }
-    
-            }
-
-            echo"<!-- Add to cart button-->
-            <button type='submit' name='add_$pro_id' class='btn btn-success product-btn' id='sbmit_$pro_id'>Add To Cart <i class='fas fa-shopping-cart'></i></button>
-            </form>
-            </div>";
+            echo "<input type='submit' name='add_to_cart' class='btn btn-success' value='Add to Cart'/>
+                    </form>
+                    </div>";
 
     }
 
@@ -216,7 +216,6 @@ function updateQTY(){
         echo "<script>window.open('cart.php#cartSection', '_self')</script>";
     }
 }
-
 
 
 

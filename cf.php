@@ -4,16 +4,14 @@ include 'header.php';
 include 'footer.php';
 include 'functions/functions.php';
 
-    $ip_add = getUserIpAddr();
+    session_start();
 
-    $selected_cart = "SELECT * FROM temp_email WHERE ORDER_IP='$ip_add'";
-    $run_select_all_cart = mysqli_query($con, $selected_cart);
-    $count_selected_rows_cart = mysqli_num_rows($run_select_all_cart);
-
-    if($count_selected_rows_cart <= 0){
+    if(empty($_SESSION['shopping_cart']) || empty($_SESSION['finish'])){
         echo "<script>window.open('./', '_self');</script>";
+    }else{
+        session_destroy();
     }
-
+    
 ?>
 <!doctype html>
 <html>
@@ -35,11 +33,6 @@ include 'functions/functions.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- PayPal BEGIN -->
-      <script>
-          ;(function(a,t,o,m,s){a[m]=a[m]||[];a[m].push({t:new Date().getTime(),event:'snippetRun'});var f=t.getElementsByTagName(o)[0],e=t.createElement(o),d=m!=='paypalDDL'?'&m='+m:'';e.async=!0;e.src='https://www.paypal.com/tagmanager/pptm.js?id='+s+d;f.parentNode.insertBefore(e,f);})(window,document,'script','paypalDDL','d31f7794-cf90-4f46-b1f6-2b3aebbbb37a');
-        </script>
-      <!-- PayPal END -->
       <style>
           .bg-mb-rp{
             background:url(img/bg.jpg) no-repeat center fixed;
@@ -133,35 +126,6 @@ include 'functions/functions.php';
            </div>
            
            </div>
-
-           <?php
-
-                global $con;
-                global $order_summary;
-                global $email;
-
-                $ip_add = getUserIpAddr();
-                
-                //double checking for orders
-                $selected_cart = "SELECT * FROM temp_email WHERE ORDER_IP='$ip_add'";
-                $run_select_all_cart = mysqli_query($con, $selected_cart);
-                $count_selected_rows_cart = mysqli_num_rows($run_select_all_cart);
-
-            if($count_selected_rows_cart <= 0){
-                echo "<script>window.open('./', '_self');</script>";
-            }else{
-
-                //delete email
-                $selected_email = "SELECT * FROM temp_email WHERE ORDER_IP='$ip_add'";
-                $run_select_all_email = mysqli_query($con, $selected_email);
-                $count_selected_rows_email = mysqli_num_rows($run_select_all_email);
-
-                if($count_selected_rows_email){
-                    $delete_email = "DELETE FROM temp_email WHERE ORDER_IP='$ip_add'";
-                    $run_email = mysqli_query($con, $delete_email);
-                }
-            }
-            ?>
            
            <!-- footer-->
            <?php mainFooter();?>
