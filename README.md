@@ -1,7 +1,7 @@
 # NESB_PHP_UPDATE_2020
 NESB PHP 2020 update
 
-##Ecommerce website made for New England Shea Butter, LLC.
+## Ecommerce website made for New England Shea Butter, LLC.
 
 - HTML5
 - CSS3
@@ -9,6 +9,7 @@ NESB PHP 2020 update
 - PHP
 - MySQL
 - PayPal Api
+- UTrust Crypto API
 - Jquery
 - Bootstrap
 
