@@ -1,8 +1,8 @@
 <?php
 
-    $dbhost = "u729631644_nesb";
-    $dbuser = "u729631644_dinshpati";
-    $dbpass = 'Z3tT57cW_$_!_*';
+    $dbhost = "local";
+    $dbuser = "";
+    $dbpass = 'admin';
     $con = new mysqli($dbhost, $dbuser, $dbpass) or die("Connect failed: %s\n". $con -> error);
 
 //Getting the Users Ip Address
